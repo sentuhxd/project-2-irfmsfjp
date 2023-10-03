@@ -4,7 +4,7 @@ const session = require('express-session');
 const exphbs = require('express-handlebars');
 const routes = require('./controllers');
 const helpers = require('./utils/helpers');
-
+const productRoutes = require('./controllers/productRoutes');
 const sequelize = require('./config/connection');
 
 // TODO: Add a comment describing the functionality of this expression
@@ -36,6 +36,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
 
+app.use('/api', productRoutes);
 app.use(routes);
 
 sequelize.sync({ force: false }).then(() => {
