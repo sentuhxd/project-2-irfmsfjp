@@ -8,3 +8,4 @@ router.get('/', withAuth, async (req, res) => {
         attributes: { exclude: ['password'] },
         order: [['name', 'ASC']],
       });
+      const users = userData.map((project) => project.get({ plain: true }));
