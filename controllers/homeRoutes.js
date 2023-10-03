@@ -23,3 +23,8 @@ router.get('/', withAuth, async (req, res) => {
           res.redirect('/');
           return;
         }
+        res.render('login');
+    });
+    
+    module.exports = router;
+    
