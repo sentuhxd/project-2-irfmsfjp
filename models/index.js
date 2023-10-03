@@ -8,6 +8,18 @@ Product.belongsTo(Category);
 
 Category.hasMany(Product);
 
+Product.belongsTo(User, {
+    through: 'user.id'
+})
+
+User.hasMany(CartItem, {
+    through: 'cart.id'
+});
+
+CartItem.belongsTo(Cart, {
+    through: 'user.id'
+});
+
 
 
 
