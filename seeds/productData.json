@@ -1,0 +1,43 @@
+[
+    {
+      "id": "1",
+      "product_name": "tissue box",
+      "price": "15",
+      "image_url": "",
+      "description": "empty box, white",
+      "category_id": "2"
+    },
+    {
+        "id": "2",
+        "product_name": "fluffy phone case",
+        "price": "30",
+        "image_url": "",
+        "description": "blue, fits iphone 15",
+        "category_id": "3"
+      },
+      {
+        "id": "3",
+        "product_name": "bumblebee pen",
+        "price": "7",
+        "image_url": "",
+        "description": "pen with a bumbleebee on the top",
+        "category_id": "1"
+      },
+      {
+        "id": "4",
+        "product_name": "rocketship piggy bank",
+        "price": "24",
+        "image_url": "",
+        "description": "piggy bank that looks like it is blasting into outer space",
+        "category_id": "4"
+      },
+      {
+        "id": "5",
+        "product_name": "seashell statue",
+        "price": "18",
+        "image_url": "",
+        "description": "small figurine made out of seashells",
+        "category_id": "4"
+      }
+  ]
+  
