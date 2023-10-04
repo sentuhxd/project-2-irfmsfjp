@@ -37,7 +37,20 @@ Cart.hasMany(CartItem, {
 
 })
 
+CartItem.belongsTo(User, {
+    foreignKey: {name: 'userid', allowNull:false},
+    onDelete: 'CASCADE'
+});
 
+CartItem.belongsTo(Product, {
+    foreignKey: {name: 'productid', allowNull: false},
+    onDelete: 'CASCADE'
+});
+
+Product.hasMany(CartItem, {
+    foreignKey: {name: 'productid', allowNull: false},
+    onDelete: 'CASCADE'
+})
 
 
 
