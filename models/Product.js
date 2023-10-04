@@ -28,7 +28,7 @@ Product.init(
     },
     imageUrl: {
         type: DataTypes.STRING,
-        allowNull: false,
+        allowNull: true,
     },
     description: {
         type: DataTypes.STRING,
@@ -36,6 +36,7 @@ Product.init(
     },
     category_id: {
       type: DataTypes.INTEGER,
+      allowNull: true,
       references:{
         model: "category",
         key: "id"
