@@ -27,6 +27,10 @@ const seedDatabase = async () => {
     }
   }
 
+  const product = await Product.bulkCreate(productData, {
+    returning: true,
+  });
+
   process.exit(0);
 };
 

@@ -3,7 +3,8 @@ const sequelize = require('../config/connection');
 
 class CartItem extends Model {}
 
-CartItem.init({
+CartItem.init(
+    {
         id: {
             type: DataTypes.INTEGER,
             autoIncrement: true,
@@ -16,11 +17,12 @@ CartItem.init({
         cart_id: {
             type: DataTypes.INTEGER,
             references: {
-                model: 'cart', key: 'id'
+                model: 'cart', key:'id',
             }
         }
 
-    }, {
+    }, 
+    {
         sequelize,
         timestamps: false,
         freezeTableName: true,

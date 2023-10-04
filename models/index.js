@@ -24,12 +24,21 @@ CartItem.belongsTo(Cart, {
     foreignKey: 'cart_id'
 })
 
+Category.hasMany(Product, {
+    foreignKey: 'category_id'
+})
+
+Product.belongsTo(Category, {
+    foreignKey: 'category_id'
+})
+
 Product.belongsToMany(Cart, {
     through: {
         model: CartItem,
         unique: false
-    }
-})
+    },
+    as: 'product_cart'
+}); 
 
 // Category.hasMany(Product);
 

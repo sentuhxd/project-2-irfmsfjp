@@ -6,7 +6,7 @@ const routes = require('./controllers');
 const helpers = require('./utils/helpers');
 const productRoutes = require('./controllers/productRoutes');
 const sequelize = require('./config/connection');
-
+const cartRoutes = require('./controllers/cartRoute');
 // TODO: Add a comment describing the functionality of this expression
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
 
@@ -37,6 +37,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/api', productRoutes);
+app.use('/api', cartRoutes);
 app.use(routes);
 
 sequelize.sync({ force: false }).then(() => {
