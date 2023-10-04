@@ -1,0 +1,9 @@
+<section class="card">
+  <!-- The contents of this card links to the gallery page using the gallery ID -->
+  <a href="/product/{{id}}">
+    <!-- The card contains the gallery name as the card header -->
+    <header>{{name}}</header>
+    <!-- The card contains the first product of the gallery -->
+    <img src="/images/{{product.[0].filename}}" alt="{{product.[0].description}}">
+  </a>
+</section>
