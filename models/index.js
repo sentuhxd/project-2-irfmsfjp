@@ -37,8 +37,16 @@ Product.belongsToMany(Cart, {
         model: CartItem,
         unique: false
     },
-    as: 'product_cart'
+    as: 'product_carts'
 }); 
+
+Cart.belongsToMany(Product, {
+    through: {
+        model: CartItem,
+        unique: false
+    },
+    as: 'cart_products'
+})
 
 // Category.hasMany(Product);
 
