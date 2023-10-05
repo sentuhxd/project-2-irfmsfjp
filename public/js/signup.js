@@ -14,10 +14,10 @@ const signupFormHandler = async (event) => {
     if (response.ok) {
         document.location.replace('/');
         } else {
-        alert('Failed to sign up.'); 
+           alert('Failed to log in');
         }
-        }
-        };
+      }
+    };
     
     
     document
