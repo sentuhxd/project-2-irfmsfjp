@@ -39,6 +39,8 @@ const sess = {
     db: sequelize
   })
 };
+
+// TODO: Add a comment describing the functionality of this statement
 app.use(session(sess));
 app.use(fileUpload());
 app.use(fileUpload());
