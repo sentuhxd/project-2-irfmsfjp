@@ -13,6 +13,7 @@ const fileUpload = require('express-fileupload');
 const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
 const User = require('./models/User');
+const passportConfig = require('./config/passport');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
 
 cloudinary.config({
@@ -25,7 +26,6 @@ const PORT = process.env.PORT || 3001;
 
 const hbs = exphbs.create({ helpers });
 
-// TODO: Add a comment describing the functionality of this object
 const sess = {
   secret: 'Super secret secret',
   cookie: {},
@@ -37,8 +37,6 @@ const sess = {
 };
 app.use(session(sess));
 app.use(fileUpload());
-// TODO: Add a comment describing the functionality of this statement
-
 
 app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
@@ -50,6 +48,10 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/api', productRoutes);
 app.use('/api', cartRoutes);
 app.use(routes);
+
+passportConfig(passport);
+app.use(passport.initialize());
+app.use(passport.session());
 
 const isAuthenticated = (req, res, next) => {
   if (req.isAuthenticated()) {
@@ -75,8 +77,7 @@ app.post('/api/products', isAuthenticated, async (req, res) => {
   }
 });
 
-app.use(passport.initialize());
-app.use(passport.session());
+
 
 sequelize.sync({ force: false }).then(() => {
   app.listen(PORT, () => console.log('Now listening'));
