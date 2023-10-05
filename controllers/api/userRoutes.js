@@ -1,3 +1,4 @@
+// userRoutes.js
 const router = require('express').Router();
 const passport = require('../../config/passport-config'); // Require the configured Passport instance
 const { User } = require('../../models');
