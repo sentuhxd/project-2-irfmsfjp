@@ -20,6 +20,11 @@ cloudinary.config({
   api_key: '168191626364913', 
   api_secret: 'Km0JfgujJVbrZnNdrGvSFPZOIfY' 
 })
+cloudinary.config({
+  cloud_name: 'dk1drdjy9', 
+  api_key: '168191626364913', 
+  api_secret: 'Km0JfgujJVbrZnNdrGvSFPZOIfY' 
+})
 const app = express();
 const PORT = process.env.PORT || 3001;
 
@@ -35,6 +40,7 @@ const sess = {
   })
 };
 app.use(session(sess));
+app.use(fileUpload());
 app.use(fileUpload());
 
 app.engine('handlebars', hbs.engine);
