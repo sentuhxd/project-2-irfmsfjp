@@ -8,6 +8,7 @@ const productRoutes = require('./controllers/productRoutes');
 const sequelize = require('./config/connection');
 const cartRoutes = require('./controllers/cartRoute');
 const cloudinary = require('cloudinary').v2;
+const Product = require('./models/Product');
 // TODO: Add a comment describing the functionality of this expression
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
 
@@ -32,6 +33,7 @@ const sess = {
   })
 };
 
+app.use(fileUpload());
 // TODO: Add a comment describing the functionality of this statement
 app.use(session(sess));
 
@@ -45,6 +47,24 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/api', productRoutes);
 app.use('/api', cartRoutes);
 app.use(routes);
+
+app.post('/api/products', async (req, res) => {
+  try{
+    const { product_name, price, description } = req.body;
+    const { productImage } = req.files;
+    const cloudinaryResponse = await cloudinary.uploader.upload(productImage.tempFilePath);
+    const newProduct = await Product.create({
+      product_name,
+      price,
+      description,
+      imageUrl: cloudinaryResponse.secure_url,
+    });
+    res.status(201).json(newProduct);
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({error: 'Failed to create a new product'});
+  }
+});
 
 sequelize.sync({ force: false }).then(() => {
   app.listen(PORT, () => console.log('Now listening'));
