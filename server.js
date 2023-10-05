@@ -10,7 +10,9 @@ const cartRoutes = require('./controllers/cartRoute');
 const cloudinary = require('cloudinary').v2;
 const Product = require('./models/Product');
 const fileUpload = require('express-fileupload');
-// TODO: Add a comment describing the functionality of this expression
+const passport = require('passport');
+const LocalStrategy = require('passport-local').Strategy;
+const User = require('./models/User');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
 
 cloudinary.config({
@@ -49,7 +51,13 @@ app.use('/api', productRoutes);
 app.use('/api', cartRoutes);
 app.use(routes);
 
-app.post('/api/products', async (req, res) => {
+const isAuthenticated = (req, res, next) => {
+  if (req.isAuthenticated()) {
+    return next();
+  }
+  res.redirect('/login'); // Redirect unauthenticated users to the login page
+};
+app.post('/api/products', isAuthenticated, async (req, res) => {
   try{
     const { product_name, price, description } = req.body;
     const { productImage } = req.files;
@@ -66,6 +74,9 @@ app.post('/api/products', async (req, res) => {
     res.status(500).json({error: 'Failed to create a new product'});
   }
 });
+
+app.use(passport.initialize());
+app.use(passport.session());
 
 sequelize.sync({ force: false }).then(() => {
   app.listen(PORT, () => console.log('Now listening'));
