@@ -56,7 +56,7 @@ const isAuthenticated = (req, res, next) => {
     return next();
   }
   res.redirect('/login'); // Redirect unauthenticated users to the login page
-};
+};  
 app.post('/api/products', isAuthenticated, async (req, res) => {
   try{
     const { product_name, price, description } = req.body;
