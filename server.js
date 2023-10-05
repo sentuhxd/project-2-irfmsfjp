@@ -9,13 +9,14 @@ const sequelize = require('./config/connection');
 const cartRoutes = require('./controllers/cartRoute');
 const cloudinary = require('cloudinary').v2;
 const Product = require('./models/Product');
+const fileUpload = require('express-fileupload');
 // TODO: Add a comment describing the functionality of this expression
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
 
 cloudinary.config({
   cloud_name: 'dk1drdjy9', 
   api_key: '168191626364913', 
-  api_secret: '***************************' 
+  api_secret: 'Km0JfgujJVbrZnNdrGvSFPZOIfY' 
 })
 const app = express();
 const PORT = process.env.PORT || 3001;
@@ -32,10 +33,10 @@ const sess = {
     db: sequelize
   })
 };
-
+app.use(session(sess));
 app.use(fileUpload());
 // TODO: Add a comment describing the functionality of this statement
-app.use(session(sess));
+
 
 app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
