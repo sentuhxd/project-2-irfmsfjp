@@ -10,10 +10,9 @@ const cartRoutes = require('./controllers/cartRoute');
 const cloudinary = require('cloudinary').v2;
 const Product = require('./models/Product');
 const fileUpload = require('express-fileupload');
-const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
 const User = require('./models/User');
-const passportConfig = require('./config/passport');
+const passport = require('./config/passport-config');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
 
 cloudinary.config({
@@ -49,7 +48,6 @@ app.use('/api', productRoutes);
 app.use('/api', cartRoutes);
 app.use(routes);
 
-passportConfig(passport);
 app.use(passport.initialize());
 app.use(passport.session());
 
