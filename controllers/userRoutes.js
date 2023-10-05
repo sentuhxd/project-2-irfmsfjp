@@ -1,7 +1,7 @@
 // userRoutes.js
 const router = require('express').Router();
-const passport = require('../config/passport'); // Require the configured Passport instance
-const { User } = require('../../models');
+const passport = require('../config/passport-config'); // Require the configured Passport instance
+const { User } = require('../models');
 
 // Update the POST /login route to use Passport's authenticate method
 router.post('/login', passport.authenticate('local'), (req, res) => {
