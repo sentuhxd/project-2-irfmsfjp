@@ -17,10 +17,10 @@
           {{#each cart}}
               <tr>
                   {{#with product}}
-                      <td class="name-row text-center px-0" scope="row" title="Item {{name}}: {{description}}">{{name}}</td>
+                      <td class="name-row text-center px-0" scope="row" title="Item {{this.product_name}}: {{this.description}}">{{this.product_name}}</td>
                   {{/with}}
-                  <td class="cost-row" data-cost="{{each_price}}" data-quantity="{{num}}"  title="{{product.name}}: ${{each_price}} "><i class="fas fa-dollar-sign"></i> {{each_price}}</td>
-                  <td class="totals-row" data-cost="{{total_price}}" data-quantity="{{num}}"  title="{{product.name}}: {{num}} x {{each_price}} = ${{total_price}} "><i class="fas fa-dollar-sign"></i> {{total_price}}</td>
+                  <td class="cost-row" data-cost="{{this.price}}" data-quantity="{{this.quantityt}}"  title="{{product.name}}: ${{each_price}} "><i class="fas fa-dollar-sign"></i> {{each_price}}</td>
+                  <td class="totals-row" data-cost="{{total_price}}" data-quantity="{{quantity}}"  title="{{product.product_name}}: {{this.quantity}} x {{this.price}} = ${{total_price}} "><i class="fas fa-dollar-sign"></i> {{total_price}}</td>
                   <td class="update-row" title="Update Cart Quantity">
                       <form class="input-group input-group-sm">
                           <div class="input-group-append">
