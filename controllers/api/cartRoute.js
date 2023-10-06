@@ -1,7 +1,7 @@
 const router = require('express').Router();
-const CartItem = require('../models/Cart-Item'); 
-const withAuth = require('../utils/auth')
-const { User, Product} = require('../models')
+const CartItem = require('../../models/Cart-Item'); 
+const withAuth = require('../../utils/auth')
+const { User, Product} = require('../../models')
 
 router.get('/cart/info', withAuth, async (req, res) => {
     if (req.isAuthenticated()) {

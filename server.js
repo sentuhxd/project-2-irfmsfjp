@@ -6,7 +6,7 @@ const routes = require('./controllers/api/');
 const helpers = require('./utils/helpers');
 const productRoutes = require('./controllers/productRoutes');
 const sequelize = require('./config/connection');
-const cartRoutes = require('./controllers/cartRoute');
+const cartRoutes = require('./controllers/api/cartRoute');
 const cloudinary = require('cloudinary').v2;
 const Product = require('./models/Product');
 const fileUpload = require('express-fileupload');
@@ -37,7 +37,6 @@ const sess = {
   })
 };
 
-// TODO: Add a comment describing the functionality of this statement
 app.use(session(sess));
 app.use(fileUpload());
 app.use(fileUpload());
