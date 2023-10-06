@@ -55,9 +55,15 @@ Product.init(
   }
 );
 Product.beforeCreate(async (product) => {
+  console.log(product.imageUrl);
   if(product.imageUrl) {
-    const result = await cloudinary.uploader.upload(product.imageUrl);
-    product.imageUrl = result.secure_url;
+    try {
+      const result = await cloudinary.uploader.upload(product.imageUrl);
+      console.log(result)
+      product.imageUrl = result.secure_url;
+    } catch(err) {
+      console.error(err);
+    }
   }
 })
 module.exports = Product;
