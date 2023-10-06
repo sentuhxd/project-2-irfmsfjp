@@ -4,14 +4,15 @@ const withAuth = require('../utils/auth');
 
 router.get('/', withAuth, async (req, res) => {
     try {
-      let currentUser = req.session.logged_in;
+      let currentUser = req.session.loggedIn;
+      console.log(currentUser)
       let products = await Product.findAll();
 
       // handlebars does not like sequalize model objects
       products = JSON.parse(JSON.stringify(products)); // plain old Javascript objects
 
       res.render('homepage', {
-        logged_in: currentUser,
+        loggedIn: currentUser,
         products
       });
     } catch (err) {
@@ -21,7 +22,7 @@ router.get('/', withAuth, async (req, res) => {
 });
     
 router.get('/login', (req, res) => {
-    if (req.session.logged_in) {
+    if (req.session.loggedIn) {
       res.redirect('/');
       return;
     }

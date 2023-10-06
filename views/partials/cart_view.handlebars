@@ -1,61 +1,222 @@
-<table class="table table-sm table-hover table-striped table-dark text-center m-auto">
+<section class="h-100 h-custom" style="background-color: #eee;">
+  <div class="container py-5 h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col">
+        <div class="card">
+          <div class="card-body p-4">
 
-  <thead class="thead-light">
-      <tr>
-          {{#if cart}}
-            <th id="name-row-head" class="px-0" title="Name of Item" scope="col">Item</th>
-            <th id="each-cost-row-head" title="Each Cost of item in US$" scope="col"><i class="fas fa-dollar-sign d-none d-lg-inline"></i> Cost<span class="d-none d-lg-inline"> Per Item</span></th>
-            <th id="total-cost-row-head" title="Total Cost of items in US$" scope="col"><i class="fas fa-dollar-sign"></i> Total <span class="d-none d-lg-inline">Cost</span></th>
-            <th id="update-row-head" title="Quantity ordering of Item" scope="col"><span class="d-none d-lg-inline">Cart </span>Quantity</th>
-            <th id="delete-row-head" title="Remove item from cart by clicking the X" scope="col"><i class="fas fa-trash"></i><span class="d-none d-lg-inline"> Remove</span> </th>
-        {{/if}}
-      </tr>
-  </thead>
-  
-  <tbody>
-      {{#if cart}}
-          {{#each cart}}
-              <tr>
-                  {{#with product}}
-                      <td class="name-row text-center px-0" scope="row" title="Item {{this.product_name}}: {{this.description}}">{{this.product_name}}</td>
-                  {{/with}}
-                  <td class="cost-row" data-cost="{{this.price}}" data-quantity="{{this.quantityt}}"  title="{{product.name}}: ${{each_price}} "><i class="fas fa-dollar-sign"></i> {{each_price}}</td>
-                  <td class="totals-row" data-cost="{{total_price}}" data-quantity="{{quantity}}"  title="{{product.product_name}}: {{this.quantity}} x {{this.price}} = ${{total_price}} "><i class="fas fa-dollar-sign"></i> {{total_price}}</td>
-                  <td class="update-row" title="Update Cart Quantity">
-                      <form class="input-group input-group-sm">
-                          <div class="input-group-append">
-                              <button class="update-quantity badge-dark badge badge-sm" type="submit"><i class="fas fa-cart-plus"></i></button>
+            <div class="row">
+
+              <div class="col-lg-7">
+                <h5 class="mb-3"><a href="#!" class="text-body"><i
+                      class="fas fa-long-arrow-alt-left me-2"></i>Continue shopping</a></h5>
+                <hr>
+
+                <div class="d-flex justify-content-between align-items-center mb-4">
+                  <div>
+                    <p class="mb-1">Shopping cart</p>
+                    <p class="mb-0">You have 4 items in your cart</p>
+                  </div>
+                  <div>
+                    <p class="mb-0"><span class="text-muted">Sort by:</span> <a href="#!"
+                        class="text-body">price <i class="fas fa-angle-down mt-1"></i></a></p>
+                  </div>
+                </div>
+
+                <div class="card mb-3">
+                  <div class="card-body">
+                    <div class="d-flex justify-content-between">
+                      <div class="d-flex flex-row align-items-center">
+                        <div>
+                          <img
+                            src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-shopping-carts/img1.webp"
+                            class="img-fluid rounded-3" alt="Shopping item" style="width: 65px;">
+                        </div>
+                        <div class="ms-3">
+                          <h5>Iphone 11 pro</h5>
+                          <p class="small mb-0">256GB, Navy Blue</p>
+                        </div>
+                      </div>
+                      <div class="d-flex flex-row align-items-center">
+                        <div style="width: 50px;">
+                          <h5 class="fw-normal mb-0">2</h5>
+                        </div>
+                        <div style="width: 80px;">
+                          <h5 class="mb-0">$900</h5>
+                        </div>
+                        <a href="#!" style="color: #cecece;"><i class="fas fa-trash-alt"></i></a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="card mb-3">
+                  <div class="card-body">
+                    <div class="d-flex justify-content-between">
+                      <div class="d-flex flex-row align-items-center">
+                        <div>
+                          <img
+                            src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-shopping-carts/img2.webp"
+                            class="img-fluid rounded-3" alt="Shopping item" style="width: 65px;">
+                        </div>
+                        <div class="ms-3">
+                          <h5>Samsung galaxy Note 10 </h5>
+                          <p class="small mb-0">256GB, Navy Blue</p>
+                        </div>
+                      </div>
+                      <div class="d-flex flex-row align-items-center">
+                        <div style="width: 50px;">
+                          <h5 class="fw-normal mb-0">2</h5>
+                        </div>
+                        <div style="width: 80px;">
+                          <h5 class="mb-0">$900</h5>
+                        </div>
+                        <a href="#!" style="color: #cecece;"><i class="fas fa-trash-alt"></i></a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="card mb-3">
+                  <div class="card-body">
+                    <div class="d-flex justify-content-between">
+                      <div class="d-flex flex-row align-items-center">
+                        <div>
+                          <img
+                            src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-shopping-carts/img3.webp"
+                            class="img-fluid rounded-3" alt="Shopping item" style="width: 65px;">
+                        </div>
+                        <div class="ms-3">
+                          <h5>Canon EOS M50</h5>
+                          <p class="small mb-0">Onyx Black</p>
+                        </div>
+                      </div>
+                      <div class="d-flex flex-row align-items-center">
+                        <div style="width: 50px;">
+                          <h5 class="fw-normal mb-0">1</h5>
+                        </div>
+                        <div style="width: 80px;">
+                          <h5 class="mb-0">$1199</h5>
+                        </div>
+                        <a href="#!" style="color: #cecece;"><i class="fas fa-trash-alt"></i></a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="card mb-3 mb-lg-0">
+                  <div class="card-body">
+                    <div class="d-flex justify-content-between">
+                      <div class="d-flex flex-row align-items-center">
+                        <div>
+                          <img
+                            src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-shopping-carts/img4.webp"
+                            class="img-fluid rounded-3" alt="Shopping item" style="width: 65px;">
+                        </div>
+                        <div class="ms-3">
+                          <h5>MacBook Pro</h5>
+                          <p class="small mb-0">1TB, Graphite</p>
+                        </div>
+                      </div>
+                      <div class="d-flex flex-row align-items-center">
+                        <div style="width: 50px;">
+                          <h5 class="fw-normal mb-0">1</h5>
+                        </div>
+                        <div style="width: 80px;">
+                          <h5 class="mb-0">$1799</h5>
+                        </div>
+                        <a href="#!" style="color: #cecece;"><i class="fas fa-trash-alt"></i></a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+              <div class="col-lg-5">
+
+                <div class="card bg-primary text-white rounded-3">
+                  <div class="card-body">
+                    <div class="d-flex justify-content-between align-items-center mb-4">
+                      <h5 class="mb-0">Card details</h5>
+                      <img src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/avatar-6.webp"
+                        class="img-fluid rounded-3" style="width: 45px;" alt="Avatar">
+                    </div>
+
+                    <p class="small mb-2">Card type</p>
+                    <a href="#!" type="submit" class="text-white"><i
+                        class="fab fa-cc-mastercard fa-2x me-2"></i></a>
+                    <a href="#!" type="submit" class="text-white"><i
+                        class="fab fa-cc-visa fa-2x me-2"></i></a>
+                    <a href="#!" type="submit" class="text-white"><i
+                        class="fab fa-cc-amex fa-2x me-2"></i></a>
+                    <a href="#!" type="submit" class="text-white"><i class="fab fa-cc-paypal fa-2x"></i></a>
+
+                    <form class="mt-4">
+                      <div class="form-outline form-white mb-4">
+                        <input type="text" id="typeName" class="form-control form-control-lg" siez="17"
+                          placeholder="Cardholder's Name" />
+                        <label class="form-label" for="typeName">Cardholder's Name</label>
+                      </div>
+
+                      <div class="form-outline form-white mb-4">
+                        <input type="text" id="typeText" class="form-control form-control-lg" siez="17"
+                          placeholder="1234 5678 9012 3457" minlength="19" maxlength="19" />
+                        <label class="form-label" for="typeText">Card Number</label>
+                      </div>
+
+                      <div class="row mb-4">
+                        <div class="col-md-6">
+                          <div class="form-outline form-white">
+                            <input type="text" id="typeExp" class="form-control form-control-lg"
+                              placeholder="MM/YYYY" size="7" id="exp" minlength="7" maxlength="7" />
+                            <label class="form-label" for="typeExp">Expiration</label>
                           </div>
-                          <input type="number" class="form-control form-control-sm p-0 m-0 mx-auto text-center" data-itemid="{{id}}" name="quantity" min="1" value="{{num}}">
-                      </form>
-                  </td>
-                  <td class="delete-row" title="Remove item from Cart">
-                     <button type="button" class="delete-item badge badge-sm badge-danger px-lg-2 mr-3 mr-md-5" data-itemid="{{id}}"><i class="fas fa-trash"></i></button>
-                  </td> 
-              </tr>
-          {{/each}}
-          <tr>
-              <td colspan="2" title="Cart total cost">Total Cost of items: <span id="cart-item-cost" class="badge badge-primary p-2">${{cart_total}}</span> </td>
-              <td colspan="3" title="Total amount of items in cart"><span class="d-none d-lg-inline">Number of items</span> Ordered: <span id="cart-item-quantity" class="badge badge-primary p-2">{{total_items}}</span></td>
-          </tr>               
-      {{else}}
-      <tr>
-          <th scope="row" colspan="4" class="text-dark bg-warning py-5"><h4>No items currently in your cart!<br> Add items to cart to make a purchase.<i class="fas fa-cart-plus"></i></h4></th>
-      </tr>
-      {{/if}}
-  </tbody>    
-</table>
-<caption title="Viewing your shopping cart above" class=""><i class="fas fa-arrow-circle-up text-light"> Your Shopping Cart</i> <i class="fas fa-shopping-cart text-light"></i></caption>
-{{!-- Make purchase button if there is a cart --}}
-{{#if cart}}
-    <div class="m-auto w-50 px-2">
-        <button type="button" id="display-payment-button" data-totalcost="{{cart_total}}" class="btn btn-primary btn-block mb-3" data-toggle="modal" data-target="#payment-modal">
-            <i class="fas fa-dollar-sign"> Pay </i> <i class="fas fa-arrow-right"> </i> <i class="fas fa-shopping-cart"> Checkout</i>
-        </button>
+                        </div>
+                        <div class="col-md-6">
+                          <div class="form-outline form-white">
+                            <input type="password" id="typeText" class="form-control form-control-lg"
+                              placeholder="&#9679;&#9679;&#9679;" size="1" minlength="3" maxlength="3" />
+                            <label class="form-label" for="typeText">Cvv</label>
+                          </div>
+                        </div>
+                      </div>
+
+                    </form>
+
+                    <hr class="my-4">
+
+                    <div class="d-flex justify-content-between">
+                      <p class="mb-2">Subtotal</p>
+                      <p class="mb-2">$4798.00</p>
+                    </div>
+
+                    <div class="d-flex justify-content-between">
+                      <p class="mb-2">Shipping</p>
+                      <p class="mb-2">$20.00</p>
+                    </div>
+
+                    <div class="d-flex justify-content-between mb-4">
+                      <p class="mb-2">Total(Incl. taxes)</p>
+                      <p class="mb-2">$4818.00</p>
+                    </div>
+
+                    <button type="button" class="btn btn-info btn-block btn-lg">
+                      <div class="d-flex justify-content-between">
+                        <span>$4818.00</span>
+                        <span>Checkout <i class="fas fa-long-arrow-alt-right ms-2"></i></span>
+                      </div>
+                    </button>
+
+                  </div>
+                </div>
+
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+      </div>
     </div>
-    {{>payment_modal}}
-{{else}}
-    <div class="m-auto w-50 px-sm-1 px-md-5">
-        <a class="btn btn-primary btn-block mb-3" href="/"><i class="fas fa-store-alt"> Browse All Categories</i></a>
-    </div>
-{{/if}}
+  </div>
+</section>
