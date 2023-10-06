@@ -42,4 +42,9 @@ router.post('/', async (req, res) => {
   }
 });
 
+router.get('/user-store', (req, res) => {
+  res.render('user-store'); 
+});
+
+
 module.exports = router;

@@ -15,7 +15,7 @@ const User = require('./models/User');
 const passport = require('./config/passport-config');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
 const homeRoutes = require('./controllers/homeRoutes');
-
+const userRoutes = require('./controllers/api/userRoutes');
 cloudinary.config({
   cloud_name: 'dk1drdjy9', 
   api_key: '168191626364913', 
@@ -59,6 +59,7 @@ app.use('/', homeRoutes);
 app.use('/api', productRoutes);
 app.use('/api', cartRoutes);
 app.use('/api', routes);
+app.use('/api', userRoutes);
 
 app.use(passport.initialize());
 app.use(passport.session());
