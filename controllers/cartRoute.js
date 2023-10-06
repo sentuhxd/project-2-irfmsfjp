@@ -1,7 +1,65 @@
 const router = require('express').Router();
 const CartItem = require('../models/Cart-Item'); 
+const withAuth = require('../utils/auth')
+const { User, Product} = require('../models')
 
+router.get('/cart/info', withAuth, async (req, res) => {
+    if (req.isAuthenticated()) {
+    CartItem.findAll({
+        attributes: ['id', 'quantity', 'cart_id', 'product_id'],
+        where: { user_id: req.user }
+      }).then((cart) => {
+        const cartInfo = {}
+        let totalCost = 0
+        let uniqueItems = 0
+        let totalItems = 0
+        cart.forEach((element) => {
+          totalCost += element.num * element.price
+          uniqueItems++
+          totalItems += element.num
+        })
+        cartInfo.totalCost = totalCost.toFixed('2')
+        cartInfo.uniqueItems = uniqueItems
+        cartInfo.totalItems = totalItems
+        res.send({ cartInfo })
+      })
+    } else {
+      res.send({})
+    }
+  })
 
+router.get('/cart', withAuth, async (req, res) => {
+    if (req.isAuthenticated()) {
+      CartItem.findAll({
+        attributes: ['id', 'quantity', 'cart_id', 'product_id'],
+        where: { user_id: req.user },
+        order: [['id', 'ASC']],
+        include: [
+          { model: Product, attributes: ['product_name', 'description'] }
+        ]
+      }).then((data) => {
+        let totalCost = 0
+        let totalItems = 0
+        const cart = []
+        for (let i = 0; i < data.length; i++) {
+          const tempObj = {}
+          totalItems += data[i].num
+          totalCost += data[i].num * data[i].each_price
+          tempObj.id = data[i].id
+          tempObj.num = data[i].num
+          tempObj.product = data[i].each_price
+          tempObj.total_price = (data[i].num * data[i].each_price).toFixed(2)
+          tempObj.product_id = data[i].product_id
+          tempObj.product = data[i].product
+          cart.push(tempObj)
+        }
+        totalCost = totalCost.toFixed(2)
+        res.render('checkout', { cart, cart_total: totalCost, total_items: totalItems })
+      })
+    } else {
+      res.redirect('/login')
+    }
+  })
 
 router.post('/cart/add', async (req, res) => {
   try {
