@@ -1,0 +1,48 @@
+.bg-blue {
+    background-color: 	#A7C7E7;
+}
+
+.btn-blue2 {
+    background-color: 	#41628B;
+}
+
+.bg-pink {
+    background-color: 	#B56576;
+}
+
+.bg-darkgreen {
+    background-color: 	#3EA56D;
+}
+
+.bg-green {
+    background-color: #64D096;
+}
+  
+.bg-orange {
+    background-color: #DF8453;
+}
+
+.bg-orange2 {
+    background-color: #E39064;
+}
+
+.btn-blue {
+    background-color: #7495BE;
+}
+
+
+.btn-pink {
+    background-color: #E56B6F;
+}
+    
+.card {
+  padding: 5%;
+  margin-top: 10px;
+  display: flex;
+}
+
+    
+body {
+    background-color: #355070;
+}
+    
