@@ -27,7 +27,7 @@
         
         "product_name": "rocketship piggy bank",
         "price": "24",
-        "imageUrl": "https://www.google.com/search?sca_esv=570700320&sxsrf=AM9HkKm-iSp0d5rubE5bABC8DQnnFDdISw:1696436625673&q=image+url&tbm=isch&source=lnms&sa=X&ved=2ahUKEwi31tPz5tyBAxXUMlkFHd0mCo0Q0pQJegQIDBAB&biw=1420&bih=790#imgrc=QkpExfz1uKND2M",
+        "imageUrl": "/images/piggybank.jpg",
         "description": "piggy bank that looks like it is blasting into outer space",
         "category_id": 4
       },
@@ -35,7 +35,7 @@
         
         "product_name": "seashell statue",
         "price": "18",
-        "imageUrl": "https://www.google.com/search?sca_esv=570700320&sxsrf=AM9HkKm-iSp0d5rubE5bABC8DQnnFDdISw:1696436625673&q=image+url&tbm=isch&source=lnms&sa=X&ved=2ahUKEwi31tPz5tyBAxXUMlkFHd0mCo0Q0pQJegQIDBAB&biw=1420&bih=790#imgrc=QkpExfz1uKND2M",
+        "imageUrl": "/images/yourimagehere.png",
         "description": "small figurine made out of seashells",
         "category_id": 1
       }
