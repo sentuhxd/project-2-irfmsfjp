@@ -3,12 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{{storeName}} - Online Store</title>
+  <title>{{storeName}} - My Store</title>
   <link rel="stylesheet" href="/public/css/style.css">
 </head>
 <body>
   <header>
-    <h1>{{storeName}} - Online Store</h1>
+    <h1>{{storeName}} - My Store</h1>
     <p>Contact: {{storeEmail}}</p>
   </header>
 
@@ -20,15 +20,15 @@
         <h2>{{product_name}}</h2>
         <p>Price: ${{price}}</p>
         <p>Description: {{description}}</p>
-        <button class="buy-button" data-productid="{{id}}">Buy Now</button>
+        <a href="/cart/{{id}}" class="buy-button" data-productid="{{id}}">Buy Now</a>
       </div>
       {{/each}}
     </section>
   </main>
   
   <footer>
+    <a href="/checkout" class="btn btn-primary">View Cart</a> <!-- Added "View Cart" button -->
     <a href="/" class="btn btn-primary">Back to Homepage</a>
   </footer>
 </body>
 </html>
-
