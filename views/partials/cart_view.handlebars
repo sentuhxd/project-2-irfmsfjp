@@ -19,7 +19,9 @@
       <div class="modal-body">
         <ul>
         {{#each cart.cart_products as |product|}}
-            <li>{{product.name}}</li>
+            <li>{{product.product_name}}</li>
+            <li>{{product.imageUrl}}</li>
+            <li>{{product.price}}</li>
         {{/each}}
         </ul>
       </div>
