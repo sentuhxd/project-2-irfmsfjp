@@ -6,7 +6,7 @@ const routes = require('./controllers/api/');
 const helpers = require('./utils/helpers');
 const productRoutes = require('./controllers/productRoutes');
 const sequelize = require('./config/connection');
-const cartRoutes = require('./controllers/cartRoute');
+const cartRoutes = require('./controllers/api/cartRoute');
 const cloudinary = require('cloudinary').v2;
 const Product = require('./models/Product');
 const fileUpload = require('express-fileupload');
@@ -15,7 +15,7 @@ const User = require('./models/User');
 const passport = require('./config/passport-config');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
 const homeRoutes = require('./controllers/homeRoutes');
-
+const userRoutes = require('./controllers/api/userRoutes');
 cloudinary.config({
   cloud_name: 'dk1drdjy9', 
   api_key: '168191626364913', 
@@ -37,7 +37,6 @@ const sess = {
   })
 };
 
-// TODO: Add a comment describing the functionality of this statement
 app.use(session(sess));
 app.use(fileUpload());
 app.use(fileUpload());
@@ -60,6 +59,7 @@ app.use('/', homeRoutes);
 app.use('/api', productRoutes);
 app.use('/api', cartRoutes);
 app.use('/api', routes);
+app.use('/api', userRoutes);
 
 app.use(passport.initialize());
 app.use(passport.session());

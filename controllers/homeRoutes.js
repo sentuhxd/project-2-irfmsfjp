@@ -50,7 +50,13 @@ router.get('/signup', (req, res) => {
   res.render('signup');
 })
 
+router.get('/user-store', (req, res) => {
+  res.render('user-store'); 
+});
 
+router.get('/user', (req, res) => {
+  res.render('user'); 
+});
 
 module.exports = router;
     
