@@ -3,7 +3,7 @@
       
       "product_name": "tissue box",
       "price": "15",
-      "image_url": "https://www.google.com/search?sca_esv=570700320&sxsrf=AM9HkKm-iSp0d5rubE5bABC8DQnnFDdISw:1696436625673&q=image+url&tbm=isch&source=lnms&sa=X&ved=2ahUKEwi31tPz5tyBAxXUMlkFHd0mCo0Q0pQJegQIDBAB&biw=1420&bih=790#imgrc=QkpExfz1uKND2M",
+      "imageUrl": "/images/tissuebox.jpg",
       "description": "empty box, white",
       "category_id": 2
     },
@@ -11,7 +11,7 @@
         
         "product_name": "fluffy phone case",
         "price": "30",
-        "image_url": "https://www.google.com/search?sca_esv=570700320&sxsrf=AM9HkKm-iSp0d5rubE5bABC8DQnnFDdISw:1696436625673&q=image+url&tbm=isch&source=lnms&sa=X&ved=2ahUKEwi31tPz5tyBAxXUMlkFHd0mCo0Q0pQJegQIDBAB&biw=1420&bih=790#imgrc=QkpExfz1uKND2M",
+        "imageUrl": "images/fluffyphonecase.jpg",
         "description": "blue, fits iphone 15",
         "category_id": 2
       },
@@ -19,7 +19,7 @@
         
         "product_name": "bumblebee pen",
         "price": "7",
-        "image_url": "https://www.google.com/search?sca_esv=570700320&sxsrf=AM9HkKm-iSp0d5rubE5bABC8DQnnFDdISw:1696436625673&q=image+url&tbm=isch&source=lnms&sa=X&ved=2ahUKEwi31tPz5tyBAxXUMlkFHd0mCo0Q0pQJegQIDBAB&biw=1420&bih=790#imgrc=QkpExfz1uKND2M",
+        "imageUrl": "/images/bumblebeepen.jpg",
         "description": "pen with a bumbleebee on the top",
         "category_id": 3
       },
@@ -27,7 +27,7 @@
         
         "product_name": "rocketship piggy bank",
         "price": "24",
-        "image_url": "https://www.google.com/search?sca_esv=570700320&sxsrf=AM9HkKm-iSp0d5rubE5bABC8DQnnFDdISw:1696436625673&q=image+url&tbm=isch&source=lnms&sa=X&ved=2ahUKEwi31tPz5tyBAxXUMlkFHd0mCo0Q0pQJegQIDBAB&biw=1420&bih=790#imgrc=QkpExfz1uKND2M",
+        "imageUrl": "/images/piggybank.jpg",
         "description": "piggy bank that looks like it is blasting into outer space",
         "category_id": 4
       },
@@ -35,7 +35,7 @@
         
         "product_name": "seashell statue",
         "price": "18",
-        "image_url": "https://www.google.com/search?sca_esv=570700320&sxsrf=AM9HkKm-iSp0d5rubE5bABC8DQnnFDdISw:1696436625673&q=image+url&tbm=isch&source=lnms&sa=X&ved=2ahUKEwi31tPz5tyBAxXUMlkFHd0mCo0Q0pQJegQIDBAB&biw=1420&bih=790#imgrc=QkpExfz1uKND2M",
+        "imageUrl": "/images/yourimagehere.png",
         "description": "small figurine made out of seashells",
         "category_id": 1
       }
