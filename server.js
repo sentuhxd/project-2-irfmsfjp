@@ -2,7 +2,7 @@ const path = require('path');
 const express = require('express');
 const session = require('express-session');
 const exphbs = require('express-handlebars');
-const routes = require('./controllers');
+const routes = require('./controllers/api/');
 const helpers = require('./utils/helpers');
 const productRoutes = require('./controllers/productRoutes');
 const sequelize = require('./config/connection');
@@ -14,17 +14,14 @@ const LocalStrategy = require('passport-local').Strategy;
 const User = require('./models/User');
 const passport = require('./config/passport-config');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
+const homeRoutes = require('./controllers/homeRoutes');
 
 cloudinary.config({
   cloud_name: 'dk1drdjy9', 
   api_key: '168191626364913', 
   api_secret: 'Km0JfgujJVbrZnNdrGvSFPZOIfY' 
 })
-cloudinary.config({
-  cloud_name: 'dk1drdjy9', 
-  api_key: '168191626364913', 
-  api_secret: 'Km0JfgujJVbrZnNdrGvSFPZOIfY' 
-})
+
 const app = express();
 const PORT = process.env.PORT || 3001;
 
@@ -51,10 +48,18 @@ app.set('view engine', 'handlebars');
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
+app.get('/test', (req, res) => {
+  res.send('Test page');
+});
 
+app.get('/login', (req, res) => {
+  res.render('login');
+});
+
+app.use('/', homeRoutes);
 app.use('/api', productRoutes);
 app.use('/api', cartRoutes);
-app.use(routes);
+app.use('/api', routes);
 
 app.use(passport.initialize());
 app.use(passport.session());
@@ -82,8 +87,6 @@ app.post('/api/products', isAuthenticated, async (req, res) => {
     res.status(500).json({error: 'Failed to create a new product'});
   }
 });
-
-
 
 sequelize.sync({ force: false }).then(() => {
   app.listen(PORT, () => console.log('Now listening'));

@@ -5,7 +5,10 @@ const loginFormHandler = async (event) => {
     // TODO: Add a comment describing the functionality of these expressions
     const email = document.querySelector('#email-login').value.trim();
     const password = document.querySelector('#password-login').value.trim();
- console.log( );
+    
+    console.log("Client Log - Email:", email, "Password:", password); 
+
+    console.log( );
     if (email && password) {
       console.log(email, password)
       // TODO: Add a comment describing the functionality of this expression

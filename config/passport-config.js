@@ -8,6 +8,7 @@ passport.use(
     usernameField: 'email'
   },(email, password, done) => {
     User.findOne({ where: { email:email } }).then((user) => {
+      console.log("Server Log - User from DB:", user);
       if (!user) return done(null, false);
       if (!user.checkPassword(password)) return done(null, false);
       return done(null, user);
