@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{storeName}} - Online Store</title>
+  <link rel="stylesheet" href="/public/css/style.css">
+</head>
+<body>
+  <header>
+    <h1>{{storeName}} - Online Store</h1>
+    <p>Contact: {{storeEmail}}</p>
+  </header>
+
+  <main>
+    <section class="product-list">
+      {{#each products}}
+      <div class="product-card">
+        <img src="/images/{{productImage}}" alt="{{product_name}}">
+        <h2>{{product_name}}</h2>
+        <p>Price: ${{price}}</p>
+        <p>Description: {{description}}</p>
+        <button class="buy-button" data-productid="{{id}}">Buy Now</button>
+      </div>
+      {{/each}}
+    </section>
+  </main>
+  
+  <footer>
+    <a href="/" class="btn btn-primary">Back to Homepage</a>
+  </footer>
+</body>
+</html>
+

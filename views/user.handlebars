@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User Profile</title>
+  <link rel="stylesheet" href="/public/css/style.css">
+</head>
+<body>
+  <header>
+    <h1>Welcome, {{name}}!</h1>
+    <p>Email: {{email}}</p>
+  </header>
+
+  <main>
+     <section class="view-products-button">
+      <a href="/controllers/productRoutes.js" class="btn btn-primary">My Store</a>
+    </section>
+    <section class="product-form">
+      <h2>Create a New Product Listing</h2>
+      <form action="/api/products" method="POST" enctype="multipart/form-data">
+        <div class="form-group">
+          <label for="product-name">Product Name:</label>
+          <input type="text" id="product-name" name="product_name" required>
+        </div>
+        <div class="form-group">
+          <label for="product-price">Price:</label>
+          <input type="number" id="product-price" name="price" required>
+        </div>
+        <div class="form-group">
+          <label for="product-description">Description:</label>
+          <textarea id="product-description" name="description" required></textarea>
+        </div>
+        <div class="form-group">
+          <label for="product-image">Product Image:</label>
+          <input type="file" id="product-image" name="productImage" accept=".jpg, .jpeg, .png" required>
+        </div>
+        <button type="submit">Create Product Listing</button>
+      </form>
+    </section>
+  </main>
+</body>
+</html>
