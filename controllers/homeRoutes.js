@@ -1,19 +1,36 @@
 const router = require('express').Router();
-const { Cart, Product, User } = require('../models'); 
+const { Cart, Product, CartItem, User} = require('../models'); 
 const withAuth = require('../utils/auth');
 
 router.get('/', withAuth, async (req, res) => {
     try {
       let currentUser = req.session.loggedIn;
-      console.log(currentUser)
+      let cartData;
       let products = await Product.findAll();
+      if (currentUser) {
+        cartData = await Cart.findOne({
+          include: [
+            { model: CartItem },
+            {
+              model: Product,
+              through: CartItem,
+              as: 'cart_products'
+            }
+          ],
+        })
+      }
+      const cart = cartData.get({plain:true});
+      
+
+      // process cartitems and 
 
       // handlebars does not like sequalize model objects
       products = JSON.parse(JSON.stringify(products)); // plain old Javascript objects
-
+      console.log('cart', cart);
       res.render('homepage', {
         loggedIn: currentUser,
-        products
+        products,
+        cart
       });
     } catch (err) {
       console.log("error", err)
@@ -32,6 +49,8 @@ router.get('/login', (req, res) => {
 router.get('/signup', (req, res) => {
   res.render('signup');
 })
+
+
 
 module.exports = router;
     
