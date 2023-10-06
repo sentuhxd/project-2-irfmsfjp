@@ -11,7 +11,7 @@ router.get('/', withAuth, async (req, res) => {
       const users = userData.map((project) => project.get({ plain: true }));
       res.render('homepage', {
         users,
-        logged_in: req.session.logged_in,
+        logged_in: req.session.loggedIn,
       });
     } catch (err) {
         res.status(500).json(err);
@@ -19,7 +19,7 @@ router.get('/', withAuth, async (req, res) => {
     });
     
     router.get('/login', (req, res) => {
-        if (req.session.logged_in) {
+        if (req.session.loggedIn) {
           res.redirect('/');
           return;
         }

@@ -2,7 +2,7 @@
 const { Model, DataTypes } = require('sequelize');
 // import our database connection from config.js
 const sequelize = require('../config/connection');
-
+const cloudinary = require('cloudinary').v2;
 // Initialize Product model (table) by extending off Sequelize's Model class
 class Product extends Model {}
 
@@ -54,5 +54,10 @@ Product.init(
     modelName: 'product',
   }
 );
-
+Product.beforeCreate(async (product) => {
+  if(product.imageUrl) {
+    const result = await cloudinary.uploader.upload(product.imageUrl);
+    product.imageUrl = result.secure_url;
+  }
+})
 module.exports = Product;

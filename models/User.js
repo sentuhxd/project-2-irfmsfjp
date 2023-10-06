@@ -2,7 +2,7 @@ const { Model, DataTypes } = require('sequelize');
 const bcrypt = require('bcrypt');
 const sequelize = require('../config/connection');
 const Cart = require('./Cart');
-
+const passportLocalSequelize = require('passport-local-sequelize');
 class User extends Model {
   checkPassword(loginPw) {
     return bcrypt.compareSync(loginPw, this.password);
@@ -55,5 +55,9 @@ User.init(
     modelName: 'user',
   }
 );
+passportLocalSequelize.attachToUser(User, {
+  usernameField: 'email',
+  hashField: 'password',
+});
 
 module.exports = User;
