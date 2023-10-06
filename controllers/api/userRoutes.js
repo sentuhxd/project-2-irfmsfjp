@@ -6,6 +6,7 @@ const { User } = require('../../models');
 router.post('/login', passport.authenticate('local'), (req, res) => {
   req.session.save(() => {
     req.session.loggedIn = true;
+    req.session.user = req.user;
     // This callback will only be called if authentication is successful
     res.json({ user: req.user, message: 'You are now logged in!' });
   })
