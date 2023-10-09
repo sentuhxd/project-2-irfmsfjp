@@ -1,4 +1,4 @@
-USE project_db;
+USE marketplace_db;
 SET FOREIGN_KEY_CHECKS=0;
 
 -- inserts for products
@@ -27,12 +27,12 @@ INSERT INTO categories (name, description, image_name) VALUES
 
 -- inserts for users
 INSERT INTO users (username, password, email, createdAt, updatedAt) VALUES
-('ianrosey', 'mypassword1234', 'ian@email.com', '2019-05-08 21:09:01', '2019-05-08 21:09:01'),
+('bestrosey', 'mypassword1234', 'ian@ian.com', '2019-05-08 21:09:01', '2019-05-08 21:09:01'),
 ('Fatima', 'mypassword1234', 'fatima@fatima.com', '2019-05-08 21:09:01', '2019-05-08 21:09:01'),
 ('Steven', 'mypassword12345', 'stevem@email.com', '2019-05-08 21:09:01', '2019-05-08 21:09:01');
 
 -- inserts for cart_items
-INSERT INTO cartitems (num, each_price, userId, productId) VALUES
+INSERT INTO cart_items (num, each_price, userId, productId) VALUES
 ('1', '20.99', '1', '12'),
 ('1', '39.99', '1', '13'),
 ('4', '8.99', '1', '6'),

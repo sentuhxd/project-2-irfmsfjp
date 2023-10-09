@@ -29,11 +29,11 @@ module.exports = (sequelize, DataTypes) => {
       foreignKey: { name: 'productId', allowNull: false },
       onDelete: 'cascade'
     })
-    Product.hasMany(models.orderitems, {
+    Product.hasMany(models.order_items, {
       foreignKey: { name: 'productId', allowNull: false },
       onDelete: 'cascade'
     })
-    Product.hasMany(models.cartitems, {
+    Product.hasMany(models.cart_items, {
       foreignKey: { name: 'productId', allowNull: false },
       onDelete: 'cascade'
     })

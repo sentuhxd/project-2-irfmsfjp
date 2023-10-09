@@ -122,11 +122,11 @@ router.get('/login', (req, res) => {
 })
 
 // register page
-router.get('/register', (req, res) => {
+router.get('/signup', (req, res) => {
   if (req.isAuthenticated()) {
     res.redirect('/account')
   } else {
-    res.render('register', { layout: 'guest' })
+    res.render('signup', { layout: 'guest' })
   }
 })
 
