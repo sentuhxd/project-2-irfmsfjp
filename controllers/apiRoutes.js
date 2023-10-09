@@ -8,7 +8,7 @@ const saltRounds = 10
 
 // delete an item from the cart
 router.delete('/api/cart', (req, res) => {
-  db.cart_item.destroy({
+  db.cart_items.destroy({
     where: { userId: req.user, id: req.body.id }
   }).then((data) => {
     if (data.id) {

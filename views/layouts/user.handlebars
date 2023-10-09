@@ -22,60 +22,59 @@
   <title>Awesome Artifcats</title>
 </head>
 
+
 <body class="bg-secondary my-4 my-lg-5 py-5 py-lg-4">
-
-  <nav id="mainTopNavbar" class="navbar fixed-top navbar-expand-md navbar-dark bg-dark px-1 p-0">
-
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mainNavBar">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <a title="Link to Github repository" class="navbar-brand px-0 mr-0"
-      href="">Awesome Artifacts</a>
-
-    <div class="collapse navbar-collapse" id="mainNavBar">
-      <ul class="navbar-nav mr-auto mt-2">
-        <li class="nav-item active">
-          <a title="View home page" class="nav-link" href="/">Home
-            <span class="d-inline d-md-none d-lg-inline"><i class="fa fa-home"></i></span>
-          </a>
-        </li>
-        <li id="account_link" class="nav-item">
-          <a title="View/edit account" class="nav-link px-0" href="/account">User Store
-            <span class="d-inline d-md-none d-lg-inline"><i class="fas fa-user-alt"></i></span>
-          </a>
-        </li>
-        <li class="nav-item dropdown">
-          <a id="navbarDropdown" class="nav-link dropdown-toggle" role="button" data-toggle="dropdown"
-            title="View Categories dropdown">Categories</a>
-          <div id="dropdownItems" class="dropdown-menu mb-2">
-            <a class="dropdown-item disabled" href="#">Select A Category</a>
-          </div>
-        </li>
-      </ul>
-      <form id="navbar-search-form" class="form-inline m-0 p-0 navbar-right">
-        <div class="input-group">
-          <div class="input-group-btn">
-            <button id="navbar-search-btn" class="btn btn-outline-primary px-1" title="Search product name or description"
-              type="submit">
-              <i class="fas fa-search mx-1"></i></button>
-          </div>
-          <input id="navbar-search-input" class="form-control mr-1" title="Search product name or description" type="text"
-            placeholder="Search">
+  	<div id="mainNavigation">
+      <nav role="navigation">
+        <div class="py-3 text-center border-bottom">
+          
         </div>
-      </form>
+      </nav>
+      <div class="navbar-expand-md">
+        <div class="navbar-dark text-center my-2">
+          <button class="navbar-toggler w-75" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span> <span class="align-middle">Awesome Artifacts</span>
+          </button>
+        </div>
+        <div class="text-center mt-3 collapse navbar-collapse" id="navbarNavDropdown">
+          <ul class="navbar-nav mx-auto ">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="/">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/account">Account</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/login">Cateories</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Policy</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Company
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                <li><a class="dropdown-item" href="#">Blog</a></li>
+                <li><a class="dropdown-item" href="#">About Us</a></li>
+                <li><a class="dropdown-item" href="#">Contact us</a></li>
+              </ul>
+            </li>
+            <div id="cart_logout" class="my-0 px-0 btn-group mx-0" role="group">
+              <a id="navbar-view-cart" class="btn btn-primary mx-0 px-1 my-2" href="/cart" title="View your cart">
+                <span id="navbar-cart-amount" class="badge badge-light m-0 p-1 mr-1">&nbsp;&nbsp;</span>Cart Items<span id="cart_info"
+                  class="ml-1"></span>
+              </a>
+            <button type="button" class="btn btn-primary px-1 mx-0 my-2" data-toggle="modal" data-target="#logout-modal"
+              title="Logout">
+                Logout <i class="fas fa-sign-out-alt m-0"></i>
+            </button>
+          </ul>
+        </div>
+      </div>
     </div>
-    <div id="cart_logout" class="my-0 px-0 btn-group mx-0" role="group">
-      <a id="navbar-view-cart" class="btn btn-primary mx-0 px-1 my-2" href="/cart" title="View your cart">
-        <span id="navbar-cart-amount" class="badge badge-light m-0 p-1 mr-1">&nbsp;&nbsp;</span>Cart Items<span id="cart_info"
-          class="ml-1"></span>
-      </a>
-      <button type="button" class="btn btn-primary px-1 mx-0 my-2" data-toggle="modal" data-target="#logout-modal"
-        title="Logout">
-        Logout <i class="fas fa-sign-out-alt m-0"></i>
-      </button>
-    </div>
-  </nav>
+
+  
 
   <div class="container-fluid">
 

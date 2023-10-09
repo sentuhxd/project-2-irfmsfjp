@@ -1,4 +1,4 @@
-<table class="table table-sm table-hover table-striped table-dark text-center m-auto">
+<table class="table table-sm table-hover table-striped table-light text-center m-auto">
 
   <thead class="thead-light">
       <tr>
@@ -45,7 +45,7 @@
       {{/if}}
   </tbody>    
 </table>
-<caption title="Viewing your shopping cart above" class=""><i class="fas fa-arrow-circle-up text-light"> Your Shopping Cart</i> <i class="fas fa-shopping-cart text-light"></i></caption>
+<caption title="Viewing your shopping cart above" class=""> Your Shopping Cart</caption>
 {{!-- Make purchase button if there is a cart --}}
 {{#if cart}}
     <div class="m-auto w-50 px-2">
@@ -56,6 +56,6 @@
     {{>payment_info}}
 {{else}}
     <div class="m-auto w-50 px-sm-1 px-md-5">
-        <a class="btn btn-primary btn-block mb-3" href="/"><i class="fas fa-store-alt"> Browse All Categories</i></a>
+        <a class="btn btn-primary btn-block mb-3" href="/"> Shop All Categories</a>
     </div>
 {{/if}}
