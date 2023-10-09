@@ -15,6 +15,7 @@ const User = require('./models/User');
 const passport = require('./config/passport-config');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
 const homeRoutes = require('./controllers/homeRoutes');
+const CartItem = require('./models/Cart-Item');
 const userRoutes = require('./controllers/api/userRoutes');
 cloudinary.config({
   cloud_name: 'dk1drdjy9', 
