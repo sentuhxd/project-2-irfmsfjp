@@ -1,105 +1,36 @@
-const User = require('./User');
-const Product = require('./Product');
-const Category = require('./Category');
-const Cart = require('./Cart');
-const CartItem = require('./Cart-Item');
+const fs = require('fs')
+const path = require('path')
+const Sequelize = require('sequelize')
+const basename = path.basename(__filename)
+const env = process.env.NODE_ENV || 'development'
+const config = require(path.join(__dirname, '/../config/config.json'))[env]
+const db = {}
 
-// Product.belongsToMany(Category, {
-//     through: 'category.id'
-// });
+let sequelize
+if (config.use_env_variable) {
+  sequelize = new Sequelize(process.env[config.use_env_variable], config)
+} else {
+  const password = process.env.DB_PASSWORD
+  sequelize = new Sequelize(config.database, config.username, password, config)
+}
 
-User.hasOne(Cart, {
-    foreignKey: 'user_id'
-});
+fs
+  .readdirSync(__dirname)
+  .filter(file => {
+    return (file.indexOf('.') !== 0) && (file !== basename) && (file.slice(-3) === '.js')
+  })
+  .forEach(file => {
+    const model = require(path.join(__dirname, file))(sequelize, Sequelize.DataTypes)
+    db[model.name] = model
+  })
 
-Cart.belongsTo(User, {
-    foreignKey: 'user_id'
-}); 
-
-Cart.hasMany(CartItem, {
-    foreignKey: 'cart_id'
+Object.keys(db).forEach(modelName => {
+  if (db[modelName].associate) {
+    db[modelName].associate(db)
+  }
 })
 
-CartItem.belongsTo(Cart, {
-    foreignKey: 'cart_id'
-})
+db.sequelize = sequelize
+db.Sequelize = Sequelize
 
-Category.hasMany(Product, {
-    foreignKey: 'category_id'
-})
-
-Product.belongsTo(Category, {
-    foreignKey: 'category_id'
-})
-
-Product.belongsToMany(Cart, {
-    through: {
-        model: CartItem,
-        unique: false
-    },
-    as: 'product_carts'
-}); 
-
-Cart.belongsToMany(Product, {
-    through: {
-        model: CartItem,
-        unique: false
-    },
-    as: 'cart_products'
-})
-
-// Category.hasMany(Product);
-
-// User.hasMany(Product);
-
-// User.hasMany(CartItem, {
-//     foreignKey: {name: 'user.id', allowNull:false}, 
-//     onDelete: 'CASCADE'
-// });
-
-// Product.belongsTo(Category, {
-//     foreignKey: { name: 'category.id', allowNull: false },
-//     onDelete: 'CASCADE'
-// });
-
-// Category.hasMany(Product, {
-//     foreignKey: { name: 'category.id', allowNull: false },
-//     onDelete: 'CASCADE'
-// })
-
-// Cart.belongsTo(User, {
-//     foreignKey: {name: 'user.id', allowNull: false},
-//     onDelete: 'CASCADE'
-
-// })
-
-// Cart.hasMany(CartItem, {
-//     foreignKey: {name: 'cart.id', allowNull:false},
-//     onDelete: 'CASCADE'
-
-// })
-
-// CartItem.belongsTo(User, {
-//     foreignKey: {name: 'user.id', allowNull:false},
-//     onDelete: 'CASCADE'
-// });
-
-// CartItem.belongsTo(Product, {
-//     foreignKey: {name: 'product.id', allowNull: false},
-//     onDelete: 'CASCADE'
-// });
-
-// Product.hasMany(CartItem, {
-//     foreignKey: {name: 'product.id', allowNull: false},
-//     onDelete: 'CASCADE'
-// })
-
-
-
-
-
-
-
-
-
-module.exports = { User, Product, Category, Cart, CartItem } ;
+module.exports = db
