@@ -1,4 +1,4 @@
-/* Apply some styles to the cart items list */
+/* Apply some styles to the cart items list 
 #cart-items {
     list-style: none;
     padding: 0;
@@ -9,13 +9,13 @@
     font-size: 16px;
 }
 
-/* Style the total price */
+
 #cart-total {
     font-size: 18px;
     font-weight: bold;
 }
 
-/* Style the payment form */
+
 #payment-form {
     margin-top: 20px;
 }
@@ -33,7 +33,6 @@
     background-color: #0056b3;
 }
 
-/* Center the page content */
 body {
     display: flex;
     flex-direction: column;
@@ -47,4 +46,84 @@ body {
 h2 {
     font-size: 24px;
     margin-bottom: 20px;
+}
+
+/* styles.css */
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.checkout-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+h1 {
+    text-align: center;
+}
+
+.order-summary, .payment-details {
+    margin: 20px 0;
+}
+
+.product-list {
+    list-style: none;
+    padding: 0;
+}
+
+.product-list li {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.product-name {
+    flex: 1;
+}
+
+.product-price {
+    flex: 1;
+    text-align: right;
+}
+
+.total {
+    display: flex;
+    justify-content: space-between;
+    font-weight: bold;
+}
+
+.total-amount {
+    text-align: right;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    margin-top: 10px;
+}
+
+input {
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+button {
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
 }
