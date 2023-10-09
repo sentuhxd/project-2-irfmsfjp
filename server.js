@@ -39,7 +39,6 @@ const sess = {
 
 app.use(session(sess));
 app.use(fileUpload());
-app.use(fileUpload());
 
 app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
