@@ -16,7 +16,7 @@ module.exports = (sequelize, DataTypes) => {
         foreignKey: { name: 'userId', allowNull: false },
         onDelete: 'cascade'
       })
-      Order.hasMany(models.order_items, {
+      Order.hasMany(models.orderitems, {
         foreignKey: { name: 'orderId', allowNull: false },
         onDelete: 'cascade'
       })

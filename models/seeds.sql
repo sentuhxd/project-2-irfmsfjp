@@ -2,7 +2,7 @@ USE project_db;
 SET FOREIGN_KEY_CHECKS=0;
 
 -- inserts for products
-INSERT INTO products (name, description, imageUrl, price, stock, categoryId) VALUES
+INSERT INTO products (name, description, image_name, price, stock, categoryId) VALUES
 ('TissueBox', 'empty box, white', 'tissuebox.jpg', '8.99', '1', '1'),
 ('PiggyBank', 'piggy bank that looks like it is blasting into outer space', 'piggybank.jpg', '25.99', '1', '2'),
 ('Bumblebee Pen', 'pen with a bumbleebee on the top', 'bumblebeepen.jpg', '5.00', '2', '3'),
@@ -20,7 +20,7 @@ INSERT INTO products (name, description, imageUrl, price, stock, categoryId) VAL
 ('$100 eGame Cash', 'BEST VALUE... e-Game cash can be used at our e-Games sister site.', 'egames100.png', '75.99', '4', '3', '2019-05-08 21:09:01', '2019-05-08 21:09:01');
 
 -- inserts for categories
-INSERT INTO categories (name, description, imageUrl) VALUES
+INSERT INTO categories (name, description, image_name) VALUES
 ('Trash', 'Shop  Trash', 'trashimg.jpg'),
 ('Teasure', 'Shop Treasure', 'treasureimg.jpg'),
 ('InBetween', 'Shop InBetween', 'inbetween.png');

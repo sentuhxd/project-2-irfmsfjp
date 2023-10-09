@@ -24,7 +24,7 @@ module.exports = (sequelize, DataTypes) => {
       foreignKey: { name: 'userId', allowNull: false },
       onDelete: 'cascade'
     })
-    User.hasMany(models.cart_items, {
+    User.hasMany(models.cartitems, {
       foreignKey: { name: 'userId', allowNull: false },
       onDelete: 'cascade'
     })
