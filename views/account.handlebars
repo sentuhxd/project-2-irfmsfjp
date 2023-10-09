@@ -1,50 +1,27 @@
-<div class="row d-flex justify-content-center">
-  <div class="col-sm-11 col-md-9 shadow-lg p-4 p-lg-5 my-4 my-lg-5 bg-white rounded-lg">
-    <form>
-      {{!-- ACCOUNT UPDATE PAGE WITH form.js Linked in script called from account.handlbars if the user is currently logged in --}}
-      <h4 class="text-center text-underline">Edit Account</h4>
-      <div class="form-row">
-        <div class="form-group col-md-6">
-          <label for="create-username">Username</label>
-          <input type="text" class="form-control" id="update-username" value="{{account.username}}">
+<main>
+     <section class="view-products-button">
+      <a href="/user-store" class="btn btn-primary">My Store</a>
+    </section>
+    <section class="product-form">
+      <h2>Create a New Product Listing</h2>
+      <form action="/api/products" method="POST" enctype="multipart/form-data">
+        <div class="form-group">
+          <label for="product-name">Product Name:</label>
+          <input type="text" id="product-name" name="product_name" required>
         </div>
-        <div class="form-group col-md-6">
-          <label for="update-email">Edit-Email</label>
-          <input type="email" class="form-control" id="update-email" value="{{account.email}}" autocomplete="email">
+        <div class="form-group">
+          <label for="product-price">Price:</label>
+          <input type="number" id="product-price" name="price" required>
         </div>
-      </div>
-      <div class="form-row">
-        <div class="form-group col-md-6">
-          <label for="update-password">New-Password</label>
-          <input type="password" class="form-control" id="update-password" placeholder="New Password"
-            autocomplete="new-password">
-          <small id="update-pw-help" class="text-muted">Password must be over at least 6 characters</small>
+        <div class="form-group">
+          <label for="product-description">Description:</label>
+          <textarea id="product-description" name="description" required></textarea>
         </div>
-        <div class="form-group col-md-6">
-          <label for="verify-update-password">Verify new password</label>
-          <input type="password" class="form-control" id="verify-update-password" placeholder="Verify new password"
-            autocomplete="new-password">
-          <small id="verify-update-pw-help" class="text-muted">Passwords Must Match</small>
+        <div class="form-group">
+          <label for="product-image">Product Image:</label>
+          <input type="file" id="product-image" name="productImage" accept=".jpg, .jpeg, .png" required>
         </div>
-      </div>
-      <div id="account_error" class="alert alert-warning font-weight-bolder text-center invisible text-break"
-        role="alert"></div>
-      <div id="account_success" class="alert alert-success font-weight-bolder text-center invisible text-break"
-        role="alert"></div>
-      <ul class="nav nav-pills nav-fill">
-        <li class="nav-item">
-          <button id="update-account" type="submit" class="btn btn-primary" title="Update account"><i
-              class="fas fa-users-cog"> Update Account</i></button>
-        </li>
-        <li class="nav-item">
-          <a class="btn btn-primary" href="/account/orders" title="View Past orders"><i class="fas fa-receipt"> Past
-              Orders</i></a>
-        </li>
-        <li class="nav-item">
-          <a class="btn btn-primary" href="/" title="Browse categories"><i class="fas fa-store-alt"> Shop</i></a>
-        </li>
-      </ul>
-    </form>
-  </div>
-</div>
-<script src="/js/account.js"></script>
+        <button type="submit">Create Product Listing</button>
+      </form>
+    </section>
+  </main>

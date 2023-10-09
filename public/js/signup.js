@@ -22,8 +22,8 @@ $(document).ready(() => {
         errorArray.push("'Password' and 'Verify Password' fields don't match!")
       }
       if (errors) {
-        $('#register_error').removeClass('invisible')
-        $('#register_error').html(errorArray.join('<br />'))
+        $('#signup_error').removeClass('invisible')
+        $('#signup_error').html(errorArray.join('<br />'))
       } else {
         const newUser = {
           username: $('#create-username').val().trim(),
@@ -38,8 +38,8 @@ $(document).ready(() => {
           if (res === 'success') {
             $(location).attr('href', '/login')
           } else {
-            $('#register_error').removeClass('invisible')
-            $('#register_error').text('Sorry, that username is already taken!')
+            $('#signup_error').removeClass('invisible')
+            $('#signup_error').text('Sorry, that username is already taken!')
           }
         })
       }

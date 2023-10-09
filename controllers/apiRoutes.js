@@ -143,7 +143,7 @@ router.put('/api/account', (req, res) => {
 })
 
 // register for an account
-router.post('/api/account/register', (req, res) => {
+router.post('/api/account/signup', (req, res) => {
   bcrypt.hash(req.body.password, saltRounds, (err, hash) => {
     if (err) {
       console.log(err)

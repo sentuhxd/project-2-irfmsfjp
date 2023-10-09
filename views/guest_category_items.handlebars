@@ -4,7 +4,7 @@
                         <div class="col mb-5">
                             <div class="card h-100 bg-orange2">
                                 <!-- Product image-->
-                                <img class="card-img-top" src="{{dataValues.image_name}}" alt="{{dataValues.description}}" />
+                                <img src="../images/{{dataValues.image_name}}" alt="{{dataValues.description}}" />
                                 <!-- Product details-->
                                 <div class="card-body p-4">
                                     <div class="text-center">
@@ -15,11 +15,11 @@
                                     </div>
                                 </div>
                                 <!-- Product actions-->
-                                <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                    <div class="text-center">
-                                        <button class=" addtocart btn btn-outline-dark mt-auto" href="/category/{{dataValues.id}}" title="Click to shop all items in {{dataValues.name}}"><i class="fas fa-arrow-circle-right"></i> Shop {{dataValues.name}} <i class="fas fa-arrow-circle-left"></i></a>
-                                    </div>
-                                </div>
+                                <div class="card-footer">
+                                    <button disabled type="button" class="btn btn-primary " data-toggle="tooltip" title="Log in or sign up to add {{dataValues.name}} to your cart.">
+                                        <i class="fas fa-cart-plus"> Log in to add to cart</i>
+                                    </button>
+      </div>
                             </div>
                         </div>
                 </div>

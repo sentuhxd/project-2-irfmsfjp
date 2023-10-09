@@ -29,7 +29,7 @@ INSERT INTO categories (name, description, image_name) VALUES
 INSERT INTO users (username, password, email, createdAt, updatedAt) VALUES
 ('bestrosey', 'mypassword1234', 'ian@ian.com', '2019-05-08 21:09:01', '2019-05-08 21:09:01'),
 ('Fatima', 'mypassword1234', 'fatima@fatima.com', '2019-05-08 21:09:01', '2019-05-08 21:09:01'),
-('Steven', 'mypassword12345', 'stevem@email.com', '2019-05-08 21:09:01', '2019-05-08 21:09:01');
+('janedoe', '$2b$10$dFcPPJQ6iijpdaHH475xqOoYJq3Q7YY3itx.Hotly.XL9y3URc1m6', 'janedoe@gmail.com', '2019-05-08 21:09:01', '2019-05-08 21:09:01');
 
 -- inserts for cart_items
 INSERT INTO cart_items (num, each_price, userId, productId) VALUES
