@@ -8,7 +8,7 @@ const saltRounds = 10
 
 // delete an item from the cart
 router.delete('/api/cart', (req, res) => {
-  db.CartItem.destroy({
+  db.cart_item.destroy({
     where: { userId: req.user, id: req.body.id }
   }).then((data) => {
     if (data.id) {
@@ -21,7 +21,7 @@ router.delete('/api/cart', (req, res) => {
 
 // update the quantity of an item in the cart
 router.put('/api/cart', (req, res) => {
-  db.CartItem.update({
+  db.cart_items.update({
     num: req.body.num
   }, {
     where: { id: req.body.id }
@@ -36,7 +36,7 @@ router.put('/api/cart', (req, res) => {
 
 // add an item to the cart
 router.post('/api/cart', (req, res) => {
-  db.CartItem.findOrCreate({
+  db.cart_items.findOrCreate({
     where: { userId: req.user, productId: req.body.productId },
     defaults: {
       num: parseInt(req.body.num),
@@ -49,7 +49,7 @@ router.post('/api/cart', (req, res) => {
       res.send('created').end()
     } else {
       // update the quantity since the item already existed
-      db.CartItem.update({
+      db.cart_items.update({
         num: parseInt(cartItem.num) + parseInt(req.body.num)
       }, {
         where: { id: cartItem.id }
