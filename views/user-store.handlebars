@@ -23,6 +23,13 @@
         <a href="/cart/{{id}}" class="buy-button" data-productid="{{id}}">Buy Now</a>
       </div>
       {{/each}}
+      <div class="product-card">
+    <img src="/images/{{productImage}}" alt="{{product_name}}">
+    <h2>{{product_name}}</h2>
+    <p>Price: ${{price}}</p>
+    <p>Description: {{description}}</p>
+    <button class="buy-button" data-productid="{{id}}">Buy Now</button> <!-- Add this button -->
+      </div>
     </section>
   </main>
   

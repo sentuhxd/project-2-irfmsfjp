@@ -46,28 +46,27 @@ document.addEventListener('DOMContentLoaded', () => {
       checkout();
     });
   });
-  
-    const addToCartButtons = document.querySelectorAll('.add-to-cart');
-    const viewCartButton = document.getElementById('view-cart');
+  // Additional code for adding products to the cart
+  const addToCartButtons2 = document.querySelectorAll('.add-to-cart');
+  const viewCartButton = document.getElementById('view-cart');
 
-    addToCartButtons.forEach(button => {
+  addToCartButtons2.forEach(button => {
       button.addEventListener('click', () => {
-        const productId = button.getAttribute('data-product-id');
-        // Send a POST request to add the product to the cart
-        fetch(`/add-to-cart/${productId}`, { method: 'POST' })
+          const productId = button.getAttribute('data-product-id');
+          // Send a POST request to add the product to the cart
+          fetch(`/add-to-cart/${productId}`, { method: 'POST' })
           .then(response => response.redirected ? window.location.href = response.url : null);
       });
-    });
+  });
 
-    // Update the cart button text
-    fetch('/cart')
-      .then(response => response.text())
-      .then(data => {
-        viewCartButton.textContent = `Cart (${data} items)`;
-      });
+  // Update the cart button text
+  fetch('/cart')
+  .then(response => response.text())
+  .then(data => {
+      viewCartButton.textContent = `Cart (${data} items)`;
+  });
 
-    // View cart button click handler
-    viewCartButton.addEventListener('click', () => {
+  // View cart button click handler
+  viewCartButton.addEventListener('click', () => {
       window.location.href = '/cart';
-    });
- 
+  });
