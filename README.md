@@ -24,3 +24,6 @@ Update the quantity or remove items from the cart
 Proceed to checkout
 Provide payment information
 
+#Getting Started
+Follow these instructions to set up and run the basic ecommerce website on your local machine.
+
