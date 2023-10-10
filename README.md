@@ -32,3 +32,5 @@ You will need the following software installed on your computer:
 
 Node.js - JavaScript runtime environment
 npm (Node Package Manager) - Comes with Node.js
+
+#Installation
