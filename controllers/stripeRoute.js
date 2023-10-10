@@ -24,3 +24,8 @@ router.post('/add-to-cart', (req, res) => {
       ],
       mode: 'payment',
     });
+
+    res.redirect(303, session.url);
+});
+
+module.exports = router;
