@@ -63,4 +63,6 @@ Submit a pull request with a clear description of your changes.
 
 This project is licensed under the MIT License.
 
+<img src="./public/images/awesome-artifacts.png" alt="Awesome Artifacts">
+
 
