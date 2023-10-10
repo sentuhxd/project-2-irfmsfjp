@@ -25,5 +25,5 @@ Proceed to checkout
 Provide payment information
 
 #Getting Started
-Follow these instructions to set up and run the basic ecommerce website on your local machine.
+Follow these instructions to set up and run Awsome-Artifact ecommerce website on your local machine.
 
