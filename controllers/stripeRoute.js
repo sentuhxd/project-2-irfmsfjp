@@ -15,3 +15,12 @@ router.post('/add-to-cart', (req, res) => {
     // Return the cart contents
     res.json(cart);
   });
+  router.post('/create-checkout-session', async (req, res) => {
+    // Create a checkout session using Stripe
+    const session = await stripe.checkout.sessions.create({
+      success_url: 'https://example.com/success',
+      line_items: [
+        {price: 'price_H5ggYwtDq4fbrJ', quantity: 2},
+      ],
+      mode: 'payment',
+    });
