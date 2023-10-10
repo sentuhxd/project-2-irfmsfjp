@@ -49,3 +49,10 @@ Explore the website, browse products, add them to your cart, and proceed to chec
 
 To stop the development server, press Ctrl + C in the terminal.
 
+Contributing
+If you would like to contribute to this project, please follow these guidelines:
+
+#Fork the repository.
+Create a new branch for your feature or bug fix.
+Make your changes and test thoroughly.
+Submit a pull request with a clear description of your changes.
