@@ -1,4 +1,4 @@
-USE marketplace_db;
+USE project_db;
 SET FOREIGN_KEY_CHECKS=0;
 
 -- inserts for products

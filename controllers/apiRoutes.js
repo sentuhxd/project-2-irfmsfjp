@@ -6,7 +6,7 @@ const bcrypt = require('bcrypt')
 const db = require('../models')
 const saltRounds = 10
 
-// delete an item from the cart
+
 router.delete('/api/cart', (req, res) => {
   db.cart_items.destroy({
     where: { userId: req.user, id: req.body.id }
@@ -19,7 +19,7 @@ router.delete('/api/cart', (req, res) => {
   })
 })
 
-// update the quantity of an item in the cart
+
 router.put('/api/cart', (req, res) => {
   db.cart_items.update({
     num: req.body.num
@@ -34,7 +34,7 @@ router.put('/api/cart', (req, res) => {
   })
 })
 
-// add an item to the cart
+
 router.post('/api/cart', (req, res) => {
   db.cart_items.findOrCreate({
     where: { userId: req.user, productId: req.body.productId },
@@ -48,7 +48,7 @@ router.post('/api/cart', (req, res) => {
     if (wasCreated) {
       res.send('created').end()
     } else {
-      // update the quantity since the item already existed
+     
       db.cart_items.update({
         num: parseInt(cartItem.num) + parseInt(req.body.num)
       }, {
@@ -64,17 +64,16 @@ router.post('/api/cart', (req, res) => {
   })
 })
 
-// route for processing a submitted order / set variables for submitting an order
 let orderId = 0
 let userId = 0
-// first find the cart that has been submitted
+
 router.post('/api/cart/submitted', (req, res, next) => {
   userId = req.user
   db.cart_items.findAll({
     attributes: ['id', 'num', 'each_price', 'productId'],
     where: { userId: userId }
   }).then((data) => {
-    // then add the submitted cart to the orders table, then add each of the items from cart_items to the order_items table with the correct orderID
+    
     db.orders.create({
       shipping_cost: 0,
       order_total: req.body.order_total,
@@ -97,14 +96,14 @@ router.post('/api/cart/submitted', (req, res, next) => {
   })
   next()
 })
-// next, delete the cart_items of the cartId that was submitted
+
 router.post('/api/cart/submitted', (req, res) => {
   db.cart_items.destroy({
     where: { userId: userId }
   }).then()
 })
 
-// update account info
+
 router.put('/api/account', (req, res) => {
   if (req.body.password === '') {
     db.users.update({
@@ -142,7 +141,7 @@ router.put('/api/account', (req, res) => {
   }
 })
 
-// register for an account
+
 router.post('/api/account/signup', (req, res) => {
   bcrypt.hash(req.body.password, saltRounds, (err, hash) => {
     if (err) {
@@ -165,7 +164,7 @@ router.post('/api/account/signup', (req, res) => {
   })
 })
 
-// login with an existing username and password
+
 let pwd = ''
 router.post('/api/account/login', (req, res) => {
   pwd = req.body.password
@@ -182,7 +181,7 @@ router.post('/api/account/login', (req, res) => {
           userId = data.id
           req.login(userId, (err) => {
             if (err) throw err
-            console.log('\nUser is being logged in!\n')
+            console.log('\nUser is being logged in\n')
             res.send('success').end()
           })
         } else {
@@ -191,8 +190,8 @@ router.post('/api/account/login', (req, res) => {
         }
       })
     } else {
-      console.log('\nNo match found for the submitted username!\n')
-      res.send('Username not found!').end()
+      console.log('\nNo match \n')
+      res.send('Username not here').end()
     }
   })
 })

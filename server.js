@@ -2,20 +2,24 @@
 require('dotenv').config()
 const express = require('express')
 const app = express()
-const stripe = require("stripe")('sk_test_4eC39HqLyjWDarjtT1zdp7dc');
+const stripe = require("stripe")('sk_test_51NxZSzBVsAs3ng48C78qHNSsEzS3qvrxGfiSiFyBD8ILdrPunnnppuSCKXj8qQADt9m9oAM65Rp4B75Y2HlbCGB900enyCSmTV');
 
 
 const PORT = process.env.PORT || 3001
-
 const db = require('./models')
-
 app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
 app.use(express.static('public'))
-
 const session = require('express-session')
 const passport = require('passport')
 const SequelizeStore = require('connect-session-sequelize')(session.Store)
+const cloudinary = require('cloudinary').v2;
+
+cloudinary.config({
+  cloud_name: 'dk1drdjy9', 
+  api_key: '168191626364913', 
+  api_secret: 'Km0JfgujJVbrZnNdrGvSFPZOIfY' 
+})
 
 app.use(session({
   secret: 'asdwelhjt',

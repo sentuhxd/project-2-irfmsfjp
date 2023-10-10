@@ -5,12 +5,12 @@ const op = Sequelize.Op
 
 const db = require('../models')
 
-// find out if the user is logged in
+
 router.get('/user/status', (req, res) => {
   res.send({ user: req.isAuthenticated() })
 })
 
-// find all categories for the navbar dropdown
+
 router.get('/category/list', (req, res) => {
   db.categories.findAll({
     attributes: ['id', 'name', 'description'],
@@ -20,7 +20,7 @@ router.get('/category/list', (req, res) => {
   })
 })
 
-// find all the current user's cart info for the navbar
+
 router.get('/cart/info', (req, res) => {
   if (req.isAuthenticated()) {
     db.cart_items.findAll({
@@ -46,7 +46,7 @@ router.get('/cart/info', (req, res) => {
   }
 })
 
-// find all categories to render on the homepage
+
 router.get('/', (req, res) => {
   db.categories.findAll({
     attributes: ['id', 'name', 'description', 'image_name'],
@@ -60,7 +60,7 @@ router.get('/', (req, res) => {
   })
 })
 
-// find all products in a specific category
+
 router.get('/category/:id', (req, res) => {
   db.products.findAll({
     attributes: ['id', 'name', 'description', 'image_name', 'price'],
@@ -75,7 +75,7 @@ router.get('/category/:id', (req, res) => {
   })
 })
 
-// search for products with the search criteria in the name or description
+
 router.get('/search/:criteria', (req, res) => {
   db.products.findAll({
     attributes: ['id', 'name', 'description', 'image_name', 'price'],
@@ -101,7 +101,7 @@ router.get('/search/:criteria', (req, res) => {
   })
 })
 
-// passport's logout function
+
 router.get('/logout', (req, res) => {
   req.logout()
   req.session.destroy((err) => {
@@ -112,7 +112,7 @@ router.get('/logout', (req, res) => {
   })
 })
 
-// login page
+
 router.get('/login', (req, res) => {
   if (req.isAuthenticated()) {
     res.redirect('/')
@@ -121,7 +121,7 @@ router.get('/login', (req, res) => {
   }
 })
 
-// register page
+
 router.get('/signup', (req, res) => {
   if (req.isAuthenticated()) {
     res.redirect('/account')
@@ -130,7 +130,6 @@ router.get('/signup', (req, res) => {
   }
 })
 
-// user account page
 router.get('/account', (req, res) => {
   if (req.isAuthenticated()) {
     db.users.findOne({
@@ -146,7 +145,7 @@ router.get('/account', (req, res) => {
   }
 })
 
-// find all of a user's orders
+
 router.get('/account/orders', (req, res) => {
   if (req.isAuthenticated()) {
     db.orders.findAll({
@@ -159,7 +158,7 @@ router.get('/account/orders', (req, res) => {
   }
 })
 
-// find a specific order
+
 router.get('/account/orders/:id', (req, res) => {
   if (req.isAuthenticated()) {
     db.orders.findOne({
@@ -176,7 +175,7 @@ router.get('/account/orders/:id', (req, res) => {
   }
 })
 
-// find all the current user's cart items and info
+
 router.get('/cart', (req, res) => {
   if (req.isAuthenticated()) {
     db.cart_items.findAll({
@@ -210,7 +209,6 @@ router.get('/cart', (req, res) => {
   }
 })
 
-// catch all for undefined routes that goes to our 404 error page
 router.get('*', (req, res) => {
   res.render('error')
 })

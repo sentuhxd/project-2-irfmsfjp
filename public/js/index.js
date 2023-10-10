@@ -1,9 +1,7 @@
 $(document).ready(() => {
-    // Get category dropdown after each page loads.
     $.get('/category/list', data => {
       data.categoryList.forEach(element => $('#dropdownItems').append("<a class='dropdown-item' href='/category/" + element.id + " ' title='" + element.description + "'>" + element.name + '</a>'))
     })
-    // Get user logged in status
     $.get('/user/status', data => {
       if (data.user) {
         $.get('/cart/info', data => {
@@ -15,7 +13,6 @@ $(document).ready(() => {
         })
       }
     })
-    // Log user in
     $('#login_btn').on('click', (event) => {
       event.preventDefault()
       const loginCheck = {
@@ -32,7 +29,6 @@ $(document).ready(() => {
           }
         })
     })
-    // Add A new Item to the cart
     $('.add-item').on('click', function (event) {
       event.preventDefault()
       const addItem = {
@@ -51,7 +47,6 @@ $(document).ready(() => {
         }
       })
     })
-    // delete an item from the cart
     $('.delete-item').on('click', function (event) {
       event.preventDefault()
       const deleteItem = {
@@ -68,14 +63,11 @@ $(document).ready(() => {
         }
       })
     })
-    // update quantity of an item
     $('.update-quantity').on('click', function (event) {
       event.preventDefault()
-      // go up the DOM tree and find the parent sibling input from the button clicked/submitted input
       const numberInput = $(this).parent().siblings()
       const newQuantity = Number(numberInput.val())
       if (newQuantity >= 1) {
-        // only do update if updated number is greater then or equal to 1.
         $.ajax('/api/cart', {
           type: 'PUT',
           data: {
@@ -91,7 +83,7 @@ $(document).ready(() => {
         })
       }
     })
-    // submit an order
+    
     $('#payment-button').on('click', (event) => {
       event.preventDefault()
       const total = $('#display-payment-button').attr('data-totalcost')
@@ -103,7 +95,7 @@ $(document).ready(() => {
         $(location).attr('href', '/account/orders/' + res.orderId)// '/account/orders/'+res.orderId
       })
     })
-    // Search Button
+    
     $('#navbar-search-btn').on('click', event => {
       event.preventDefault()
       const search = $('#navbar-search-input').val()
