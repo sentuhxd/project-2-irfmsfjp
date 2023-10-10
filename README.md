@@ -27,3 +27,8 @@ Provide payment information
 #Getting Started
 Follow these instructions to set up and run Awsome-Artifact ecommerce website on your local machine.
 
+#Prerequisites
+You will need the following software installed on your computer:
+
+Node.js - JavaScript runtime environment
+npm (Node Package Manager) - Comes with Node.js
