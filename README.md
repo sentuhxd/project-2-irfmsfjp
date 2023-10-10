@@ -23,4 +23,4 @@ Add products to the shopping cart
 Update the quantity or remove items from the cart
 Proceed to checkout
 Provide payment information
-Receive order confirmation
+
