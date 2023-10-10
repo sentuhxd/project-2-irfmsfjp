@@ -11,3 +11,7 @@ router.post('/add-to-cart', (req, res) => {
     cart.push(product);
     res.json({ success: true });
   });
+  router.get('/cart', (req, res) => {
+    // Return the cart contents
+    res.json(cart);
+  });
