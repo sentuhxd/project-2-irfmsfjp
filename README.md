@@ -1,4 +1,4 @@
-# project-2-Awsome-Artifact
+# project-2-Awesome-Artifact
 
 #Table of Contents
   
@@ -38,5 +38,14 @@ Load the package .json in your terminal  NPM I
 run the seed schema 
 run the schema 
 Npm dev 
-Npm start 
+
+#Usage
+
+Start the development server: NPM Start 
+
+Open your web browser and navigate to http://localhost:3001 to access Awesome-Artifact.
+
+Explore the website, browse products, add them to your cart, and proceed to checkout.
+
+To stop the development server, press Ctrl + C in the terminal.
 
