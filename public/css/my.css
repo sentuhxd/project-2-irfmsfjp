@@ -1,3 +1,11 @@
+html { 
+    background: url(/images/tiqui.jpg) no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
 .bg-blue {
     background-color: 	#A7C7E7;
 }
@@ -43,7 +51,10 @@
 
     
 body {
-    background-color: #355070;
+    background-image: url('/images/tiqui.jpg');
+    background-size: 100%;
+    
+    
 }
 
 #mainNavigation a {

@@ -165,7 +165,7 @@ router.post('/api/account/signup', (req, res) => {
 })
 
 
-let pwd = ''
+let pwd = '';
 router.post('/api/account/login', (req, res) => {
   pwd = req.body.password
   db.users.findOne({
@@ -203,5 +203,6 @@ passport.serializeUser((userId, done) => {
 passport.deserializeUser((userId, done) => {
   done(null, userId)
 })
+
 
 module.exports = router
