@@ -26,7 +26,8 @@
         "passport": "^0.6.0",
         "passport-local": "^1.0.0",
         "passport-local-sequelize": "^0.9.1",
-        "sequelize": "^6.3.5"
+        "sequelize": "^6.3.5",
+        "stripe": "^13.9.0"
     },
     "devDependencies": {
         "nodemon": "^3.0.1"

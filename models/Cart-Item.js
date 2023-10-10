@@ -1,40 +1,26 @@
-const { Model, DataTypes } = require('sequelize');
-const sequelize = require('../config/connection');
-
-class CartItem extends Model {}
-
-CartItem.init(
-    {
-        id: {
-            type: DataTypes.INTEGER,
-            autoIncrement: true,
-            allowNull: false,
-            primaryKey: true,
-        },
-        quantity: {
-            type: DataTypes.INTEGER,
-        },
-        cart_id: {
-            type: DataTypes.INTEGER,
-            references: {
-                model: 'cart', key:'id',
-            }
-        },
-        product_id: {
-            type: DataTypes.INTEGER,
-            references: {
-                model: 'product', key: 'id',
-            }
-        }
-
-    }, 
-    {
-        sequelize,
-        timestamps: false,
-        freezeTableName: true,
-        underscored: true,
-        modelName: 'cartitem',
+module.exports = (sequelize, DataTypes) => {
+  const CartItem = sequelize.define('cart_items', {
+    num: {
+      type: DataTypes.INTEGER,
+      allowNull: false
+    },
+    each_price: {
+      type: DataTypes.DECIMAL(10, 2),
+      allowNull: false
     }
-);
-
-module.exports = CartItem;
+  }, {
+    freezeTableName: true,
+    timestamps: false
+  })
+  CartItem.associate = (models) => {
+    CartItem.belongsTo(models.users, {
+      foreignKey: { name: 'userId', allowNull: false },
+      onDelete: 'cascade'
+    })
+    CartItem.belongsTo(models.products, {
+      foreignKey: { name: 'productId', allowNull: false },
+      onDelete: 'cascade'
+    })
+  }
+  return CartItem
+}

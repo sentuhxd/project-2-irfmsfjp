@@ -1,57 +1,19 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-orange">
-            <div class="container  px-4 px-lg-5">
-                <a class="navbar-brand" href="#!">Awesome Artifacts</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
-                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="#!">Home</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#!">About</a></li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Shop</a>
-                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a class="dropdown-item" href="#!">All Products</a></li>
-                                <li><hr class="dropdown-divider" /></li>
-                                <li><a class="dropdown-item" href="#!">Popular Items</a></li>
-                                <li><a class="dropdown-item" href="#!">New Arrivals</a></li>
-                            </ul>
-                        </li>
-                    </ul>
-                    <form class="d-flex">
-                        <button class="btn btn-outline-dark" type="submit">
-                            <i class="bi-cart-fill me-1"></i>
-                            Cart
-                            <span class="badge bg-dark text-white ms-1 rounded-pill">0</span>
-                        </button>
-                    </form>
-                </div>
+{{!-- Page to login  --}}
+<div class="row d-flex justify-content-center">
+    <div class="col-10 col-md-6 p-4 shadow-lg p-md-5 my-4 bg-white rounded" >
+        <form>
+            <div class="form-group">
+                <label for="username-login">Username: </label>
+                <input type="text" class="form-control" id="username-login" placeholder="" autocomplete="username">
+                <small id="username-help" class="form-text text-muted">We'll never share your information with anyone else.</small>
             </div>
-</nav>
-
-
-
- <div class="d-flex justify-content-center">
- <div class="card text-center w-75 bg-orange2">
-  <h2>Login</h2>
-  <form class="form login-form">
-  <div class="form-group">
-    <label for="email-login">email:</label>
-    <input class="form-input" type="text" id="email-login" />
-  </div>
-  <div class="form-group">
-    <label for="password-login">password:</label>
-    <input class="form-input" type="password" id="password-login" />
-  </div>
-  <div class="form-group">
-    <button class="btn btn-blue" type="submit">Login</button>
-  </div>
-</form>
- </div>
-  </div>
-
-<div class="d-flex justify-content-center">
-  <div class="card text-center w-75 bg-orange2">
-     <a href="/signup">Sign Up Here!</a>
-     </div>
+            <div class="form-group">
+                <label for="user-password">Password: </label>
+                <input type="password" class="form-control " id="user-password" placeholder="Password" autocomplete="current-password">
+            </div>
+            <div id="login_error" class="alert alert-warning font-weight-bolder text-center invisible text-break" role="alert">
+            </div>
+                <button type="submit" id="login_btn" class="btn-block btn btn-primary font-weight-bold mt-3"> Log-in </button>
+        </form>     
+    </div>
 </div>
-
-<script src="/js/login.js"></script>

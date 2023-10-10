@@ -1,92 +1,67 @@
-const path = require('path');
-const express = require('express');
-const session = require('express-session');
-const exphbs = require('express-handlebars');
-const routes = require('./controllers/api/');
-const helpers = require('./utils/helpers');
-const productRoutes = require('./controllers/productRoutes');
-const sequelize = require('./config/connection');
-const cartRoutes = require('./controllers/api/cartRoute');
+
+require('dotenv').config()
+const express = require('express')
+const app = express()
+const keys = require('./config/keys')
+
+const stripe = require('stripe')(keys.stripeSecretKey);
+
+const PORT = process.env.PORT || 3001
+const db = require('./models')
+app.use(express.urlencoded({ extended: true }))
+app.use(express.json())
+app.use(express.static('public'))
+const session = require('express-session')
+const passport = require('passport')
+const SequelizeStore = require('connect-session-sequelize')(session.Store)
 const cloudinary = require('cloudinary').v2;
-const Product = require('./models/Product');
-const fileUpload = require('express-fileupload');
-const LocalStrategy = require('passport-local').Strategy;
-const User = require('./models/User');
-const passport = require('./config/passport-config');
-const SequelizeStore = require('connect-session-sequelize')(session.Store);
-const homeRoutes = require('./controllers/homeRoutes');
-const userRoutes = require('./controllers/api/userRoutes');
+const path = require('path');
+const bodyParser = require('body-parser')
+
 cloudinary.config({
   cloud_name: 'dk1drdjy9', 
   api_key: '168191626364913', 
   api_secret: 'Km0JfgujJVbrZnNdrGvSFPZOIfY' 
 })
 
-const app = express();
-const PORT = process.env.PORT || 3001;
-
-const hbs = exphbs.create({ helpers });
-
-const sess = {
-  secret: 'Super secret secret',
-  cookie: {},
-  resave: false,
-  saveUninitialized: true,
+app.use(session({
+  secret: 'asdwelhjt',
   store: new SequelizeStore({
-    db: sequelize
-  })
-};
+    db: db.sequelize
+  }),
+  resave: false,
+  // proxy: true // if you do SSL outside of node.
+  saveUninitialized: false
+  // cookie: { secure: true }
+}))
 
-app.use(session(sess));
-app.use(fileUpload());
 
-app.engine('handlebars', hbs.engine);
-app.set('view engine', 'handlebars');
 
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
-app.use(express.static(path.join(__dirname, 'public')));
-app.get('/test', (req, res) => {
-  res.send('Test page');
-});
 
-app.get('/login', (req, res) => {
-  res.render('login');
-});
+app.use(passport.initialize())
+app.use(passport.session())
 
-app.use('/', homeRoutes);
-app.use('/api', productRoutes);
-app.use('/api', cartRoutes);
-app.use('/api', routes);
-app.use('/api', userRoutes);
+app.use(bodyParser.urlencoded({extended: true}));
 
-app.use(passport.initialize());
-app.use(passport.session());
+const exphbs = require('express-handlebars')
+app.set('view engine', 'handlebars')
+app.engine('handlebars', exphbs({ defaultLayout: 'user' }));
 
-const isAuthenticated = (req, res, next) => {
-  if (req.isAuthenticated()) {
-    return next();
-  }
-  res.redirect('/login'); // Redirect unauthenticated users to the login page
-};  
-app.post('/api/products', isAuthenticated, async (req, res) => {
-  try{
-    const { product_name, price, description } = req.body;
-    const { productImage } = req.files;
-    const cloudinaryResponse = await cloudinary.uploader.upload(productImage.tempFilePath);
-    const newProduct = await Product.create({
-      product_name,
-      price,
-      description,
-      imageUrl: cloudinaryResponse.secure_url,
-    });
-    res.status(201).json(newProduct);
-  } catch (err) {
-    console.error(err);
-    res.status(500).json({error: 'Failed to create a new product'});
-  }
-});
+app.use(express.static(`${__dirname}/public`));
 
-sequelize.sync({ force: false }).then(() => {
-  app.listen(PORT, () => console.log('Now listening'));
-});
+
+
+
+
+
+const apiRoutes = require('./controllers/apiRoutes.js')
+app.use(apiRoutes)
+
+const htmlRoutes = require('./controllers/htmlRoutes.js')
+app.use(htmlRoutes)
+
+db.sequelize.sync({ force: false }).then(() => {
+  app.listen(PORT, () => console.log(`\nServer listening on: http://localhost:${PORT}`))
+}).catch((error) => {
+  console.log(error)
+})
