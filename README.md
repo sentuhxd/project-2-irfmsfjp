@@ -34,3 +34,4 @@ Node.js - JavaScript runtime environment
 npm (Node Package Manager) - Comes with Node.js
 
 #Installation
+Load the package .json in your terminal  NPM I 
