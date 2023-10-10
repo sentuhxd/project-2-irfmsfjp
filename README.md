@@ -14,3 +14,5 @@
 #Introduction
 
 Awsome-Artifact is a simple web application designed to showcase fundamental ecommerce functionality. It allows users to browse products, add them to their cart, and complete the checkout process.
+
+#Features
